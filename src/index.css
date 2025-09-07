@@ -45,3 +45,40 @@ body {
 * {
   transition: all 0.3s ease;
 }
+
+button {
+  font-weight: 600;
+  background-color: #fee685;
+  padding: 8px 32px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ffda56;
+}
+
+button:active {
+  scale: 95%;
+}
+
+.custom-form {
+  @apply flex flex-col gap-4 justify-center w-80;
+}
+
+.custom-form-field {
+  @apply bg-gray-100 shadow outline-0 rounded-lg w-full px-4 py-2 hover:shadow-lg;
+}
+
+.custom-form-field::placeholder {
+  font-style: italic;
+  opacity: 50%;
+}
+
+.custom-form-label {
+  @apply flex flex-col gap-2;
+}
+
+.custom-form-button {
+  @apply mt-2 shadow hover:shadow-xl;
+}

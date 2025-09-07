@@ -1,4 +1,4 @@
-import type { IService } from "../interfaces/service";
+import type { IService } from "../types/service";
 import { api } from "./api";
 
 export const serviceApi = api.injectEndpoints({

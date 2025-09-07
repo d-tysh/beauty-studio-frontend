@@ -1,7 +1,7 @@
 import { Suspense } from "react"
 import { Outlet } from "react-router-dom"
 import { Header } from "./header/Header"
-import { Aside } from "./Aside"
+import { Aside } from "./aside/Aside"
 
 export const Layout = () => {
     return (

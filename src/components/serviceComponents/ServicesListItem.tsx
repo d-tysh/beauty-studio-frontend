@@ -1,4 +1,4 @@
-import type { IService } from "../../interfaces/service"
+import type { IService } from "../../types/service"
 
 export const ServicesListItem = ({ service }: { service: IService }) => {
     return (
