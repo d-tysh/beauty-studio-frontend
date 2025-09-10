@@ -26,15 +26,15 @@ nav a {
   color: #fff;
 }
 
-nav a.active {
+/* nav a.active {
   color: #000;
   background-color: white;
-}
+} */
 
-nav a:hover {
+/* nav a:hover {
   color: #000;
   background-color: rgb(216, 216, 216);
-}
+} */
 
 body {
   margin: 0;
@@ -44,4 +44,61 @@ body {
 
 * {
   transition: all 0.3s ease;
+}
+
+button {
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.custom-form {
+  @apply flex flex-col gap-4 justify-center w-80;
+}
+
+.custom-form-field {
+  @apply bg-gray-100 shadow outline-0 rounded-lg w-full px-4 py-2 hover:shadow-lg;
+}
+
+.custom-form-field::placeholder {
+  font-style: italic;
+  opacity: 50%;
+}
+
+.custom-form-label {
+  @apply flex flex-col gap-2;
+}
+
+.custom-form-button {
+  @apply mt-2 shadow hover:shadow-xl;
+}
+
+.header-nav-link {
+  @apply py-3 px-6 border-y-1 border-white;
+}
+
+.header-nav-link:hover {
+  color: #000;
+  background-color: rgb(216, 216, 216);
+}
+
+.header-nav-link.active {
+  color: #000;
+  background-color: white;
+}
+
+.aside-nav {
+  @apply my-1 p-1 rounded lg:p-0;
+}
+
+.aside-nav:hover {
+  @apply bg-amber-200 text-amber-300 lg:p-0 lg:bg-inherit lg:pl-4;
+}
+
+.aside-nav.active {
+  @apply bg-amber-100 text-amber-200 lg:p-0 lg:bg-inherit lg:pl-4;
+}
+
+aside > div::-webkit-scrollbar {
+  width: 0;
 }

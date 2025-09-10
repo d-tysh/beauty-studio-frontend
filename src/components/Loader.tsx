@@ -1,12 +1,13 @@
-import { MoonLoader } from "react-spinners"
+import { BarLoader } from "react-spinners"
 
 interface ILoaderProps {
-    size?: number,
+    width?: number,
+    height?: number,
     color?: string
 }
 
 export const Loader = (props: ILoaderProps) => {
-    const { size = 50, color = '#000000'} = props;
+    const { width = 50, height = 4, color = '#000000'} = props;
     
-    return <MoonLoader size={size} color={color} />
+    return <BarLoader width={width} height={height} color={color} />
 }

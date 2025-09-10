@@ -4,6 +4,9 @@ const { VITE_API_URL } = import.meta.env;
 
 export const api = createApi({
     reducerPath: 'api',
-    baseQuery: fetchBaseQuery({ baseUrl: VITE_API_URL }),
+    baseQuery: fetchBaseQuery({ 
+        baseUrl: VITE_API_URL,
+        credentials: 'include'
+    }),
     endpoints: () => ({})
 })

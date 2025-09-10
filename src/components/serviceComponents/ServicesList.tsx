@@ -1,4 +1,4 @@
-import type { IService } from "../../interfaces/service"
+import type { IService } from "../../types/service"
 import { ServicesListItem } from "./ServicesListItem"
 
 export const ServicesList = ({services}: { services: IService[]}) => {
