@@ -26,15 +26,15 @@ nav a {
   color: #fff;
 }
 
-nav a.active {
+/* nav a.active {
   color: #000;
   background-color: white;
-}
+} */
 
-nav a:hover {
+/* nav a:hover {
   color: #000;
   background-color: rgb(216, 216, 216);
-}
+} */
 
 body {
   margin: 0;
@@ -48,18 +48,8 @@ body {
 
 button {
   font-weight: 600;
-  background-color: #fee685;
-  padding: 8px 32px;
   border-radius: 8px;
   cursor: pointer;
-}
-
-button:hover {
-  background-color: #ffda56;
-}
-
-button:active {
-  scale: 95%;
 }
 
 .custom-form {
@@ -81,4 +71,34 @@ button:active {
 
 .custom-form-button {
   @apply mt-2 shadow hover:shadow-xl;
+}
+
+.header-nav-link {
+  @apply py-3 px-6 border-y-1 border-white;
+}
+
+.header-nav-link:hover {
+  color: #000;
+  background-color: rgb(216, 216, 216);
+}
+
+.header-nav-link.active {
+  color: #000;
+  background-color: white;
+}
+
+.aside-nav {
+  @apply my-1 p-1 rounded lg:p-0;
+}
+
+.aside-nav:hover {
+  @apply bg-amber-200 text-amber-300 lg:p-0 lg:bg-inherit lg:pl-4;
+}
+
+.aside-nav.active {
+  @apply bg-amber-100 text-amber-200 lg:p-0 lg:bg-inherit lg:pl-4;
+}
+
+aside > div::-webkit-scrollbar {
+  width: 0;
 }

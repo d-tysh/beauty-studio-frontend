@@ -1,3 +1,4 @@
+import type { IAdminLogin } from "../types/types";
 import { api } from "./api";
 
 interface ILogoutResponse {
@@ -9,7 +10,7 @@ interface ILogoutResponse {
 export const adminApi = api.injectEndpoints({
     endpoints: (builder) => ({
         login: builder.mutation({
-            query: (data) => ({
+            query: (data: IAdminLogin) => ({
                 url: '/admin/login',
                 method: 'POST',
                 body: data

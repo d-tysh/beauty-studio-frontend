@@ -14,7 +14,7 @@ export const Aside = () => {
             {
                 isLoginLoading ? <AsideLoader /> : 
                     <>
-                        <div className={clsx("p-4 flex", isLoggedIn ? "h-auto" : "h-full")}>
+                        <div className={clsx("p-4 flex items-center", isLoggedIn ? "h-auto" : "h-full")}>
                             <AsideLogo />
                         </div>
                         <AsideAdminMenu />

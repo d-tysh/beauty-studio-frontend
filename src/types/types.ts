@@ -16,4 +16,9 @@ export interface IAdminState {
     isLoading: boolean,
 }
 
+export interface IAdminLogin {
+    login: string,
+    password: string
+}
+
 type ADMIN_STATUS = 'pro' | 'basic';

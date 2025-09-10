@@ -3,20 +3,22 @@ import { useLoginMutation } from "../../api/adminApi"
 import { Loader } from "../Loader";
 import { useAppDispatch } from "../../redux/hooks";
 import { adminLogin, setLoading } from "../../redux/admin/slice";
+import type { IAdminLogin } from "../../types/types";
+import { useNavigate } from "react-router-dom";
+import { Button } from "../Button";
 
-interface ILoginValues {
-    login: string,
-    password: string
-}
+
 
 export const LoginForm = () => {
     const [login, { isLoading }] = useLoginMutation();
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
-    const handleSubmit = async (data: ILoginValues) => {
+    const handleSubmit = async (data: IAdminLogin) => {
         dispatch(setLoading());
         const result = await login(data).unwrap();
         dispatch(adminLogin(result.data));
+        navigate('/');
     }
 
     return (
@@ -44,9 +46,9 @@ export const LoginForm = () => {
                         className='custom-form-field'
                     />
                 </label>
-                <button className="custom-form-button w-full flex justify-center items-center h-10">
+                <Button className='custom-form-button'>
                     {isLoading ? <Loader /> : 'Login'}
-                </button>
+                </Button>
             </Form>
         </Formik>
     )
