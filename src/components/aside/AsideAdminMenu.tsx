@@ -18,7 +18,6 @@ export const AsideAdminMenu = () => {
         dispatch(adminLogout());
     }
     
-
     return (
         <>
             {
@@ -28,7 +27,9 @@ export const AsideAdminMenu = () => {
                         <AsideNav />
                     </div>
                     <div className="w-full mt-8">
-                        <Link to='#' className="mb-4 flex gap-2 justify-center">👤 <span className="hidden lg:block">{admin.name}</span></Link>
+                        <Link to={`/admin/${admin.id}`} className="mb-4 flex gap-2 justify-center">
+                            👤 <span className="hidden lg:block">{admin.name}</span>
+                        </Link>
                         <Button className="text-black w-full" onClick={handleLogout}>
                             {isLogoutLoading ? <Loader /> : <><span className="hidden lg:block">Logout&nbsp;</span>⇒</>}
                         </Button>
