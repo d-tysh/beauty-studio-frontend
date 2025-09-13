@@ -1,25 +1,10 @@
 import { Field, Form, Formik } from "formik"
-import { useLoginMutation } from "../../api/adminApi"
 import { Loader } from "../Loader";
-import { useAppDispatch } from "../../redux/hooks";
-import { adminLogin, setLoading } from "../../redux/admin/slice";
-import type { IAdminLogin } from "../../types/types";
-import { useNavigate } from "react-router-dom";
 import { Button } from "../Button";
-
-
+import { useAdminLogin } from "../../hooks/useAdminLogin";
 
 export const LoginForm = () => {
-    const [login, { isLoading }] = useLoginMutation();
-    const dispatch = useAppDispatch();
-    const navigate = useNavigate();
-
-    const handleSubmit = async (data: IAdminLogin) => {
-        dispatch(setLoading());
-        const result = await login(data).unwrap();
-        dispatch(adminLogin(result.data));
-        navigate('/');
-    }
+    const { handleLogin, isLoading } = useAdminLogin();
 
     return (
         <Formik
@@ -27,7 +12,7 @@ export const LoginForm = () => {
                 login: '',
                 password: ''
             }}
-            onSubmit={handleSubmit}
+            onSubmit={handleLogin}
         >
             <Form className="custom-form md:mt-20">
                 <label className="custom-form-label">
