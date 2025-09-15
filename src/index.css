@@ -102,3 +102,27 @@ button {
 aside > div::-webkit-scrollbar {
   width: 0;
 }
+
+.servise-list-item {
+  @apply font-medium bg-amber-50 shadow-xl w-100 rounded-2xl text-left
+}
+
+.servise-list-item:hover {
+  @apply bg-amber-100 cursor-pointer shadow-2xl;
+}
+
+.servise-table tr:not(:last-of-type) {
+  @apply border-b-2 border-amber-200;
+}
+
+.servise-table tr > td:nth-child(1) {
+  @apply border-r-2 px-4 py-2 border-amber-200;
+}
+
+.servise-table tr > td:nth-child(2) {
+  @apply px-4 py-2 w-full;
+}
+
+.custom-h2 {
+  @apply text-2xl font-bold bg-amber-200 p-4;
+}

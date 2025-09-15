@@ -1,4 +1,4 @@
-import type { IAdminLogin } from "../types/types";
+import type { IAdmin, IAdminLogin } from "../types/types";
 import { api } from "./api";
 
 interface ILogoutResponse {
@@ -21,11 +21,15 @@ export const adminApi = api.injectEndpoints({
                 url: '/admin/logout',
                 method: 'POST'
             })
+        }),
+        getCurrentAdmin: builder.query<IAdmin, void>({
+            query: () => '/admin/current',
         })
     })
 })
 
 export const {
     useLoginMutation,
-    useLogoutMutation
+    useLogoutMutation,
+    useGetCurrentAdminQuery
 } = adminApi;
