@@ -7,12 +7,14 @@ import { ToastContainer } from 'react-toastify'
 import { AppRoutes } from './AppRoutes'
 
 function App() {
-    const { data } = useGetCurrentAdminQuery();
+    const { data, isSuccess } = useGetCurrentAdminQuery();
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        if (data) dispatch(adminLogin(data));
-    }, [data, dispatch])
+        if (isSuccess && data) {
+            dispatch(adminLogin(data));
+        }
+    }, [data, dispatch, isSuccess])
 
     return (
         <>
