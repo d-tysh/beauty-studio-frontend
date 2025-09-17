@@ -4,6 +4,7 @@ import { Loader } from "../components/Loader";
 import { selectAdmin } from "../redux/admin/selectors";
 import { useAppSelector } from "../redux/hooks";
 import { Link, useNavigate } from "react-router-dom";
+import { H2 } from "../components/headers/H2";
 
 export const AllAdminsPage = () => {
     const { data, isLoading, error } = useGetAllAdminsQuery();
@@ -18,7 +19,7 @@ export const AllAdminsPage = () => {
 
     return (
         <div>
-            <h2 className='custom-h2'>Admins</h2>
+            <H2>Admins</H2>
             <div className="p-4 flex justify-center">
                 {isLoading && <Loader />}
                 {error && !isLoading && <p>Error! Something went wrong...</p>}

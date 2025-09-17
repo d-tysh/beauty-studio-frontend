@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useAppSelector } from "../redux/hooks";
 import { selectAdmin } from "../redux/admin/selectors";
+import { H2 } from "../components/headers/H2";
 
 export const AdminInfoPage = () => {
     const params = useParams();
@@ -8,7 +9,7 @@ export const AdminInfoPage = () => {
 
     return (
         <div>
-            <h2 className="custom-h2">Admin info</h2>
+            <H2>Admin info</H2>
             <div className="p-4 text-left inline-block">
                 <p>
                     <span className="font-semibold">Admin ID: </span>{params.id}

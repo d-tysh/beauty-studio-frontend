@@ -7,6 +7,7 @@ import { AdminInfoPage } from './pages/AdminInfoPage'
 import { RestrictedRoute } from './components/RestrictedRoute'
 import { PrivateRoute } from './components/PrivateRoute'
 import { AllAdminsPage } from './pages/AllAdminsPage'
+import { H2 } from './components/headers/H2'
 
 export const AppRoutes = () => {
     return (
@@ -22,9 +23,9 @@ export const AppRoutes = () => {
                     element={<RestrictedRoute redirectTo='/' component={<RegisterPage />} />} 
                 />
                 <Route path='/admins' element={<AllAdminsPage />} />
-                <Route path='/clients' element={<h2 className='custom-h2'>Clients</h2>} />
-                <Route path='/procedures' element={<h2 className='custom-h2'>Procedures</h2>} />
-                <Route path='/services' element={<h2 className='custom-h2'>Services</h2>} />
+                <Route path='/clients' element={<H2>Clients</H2>} />
+                <Route path='/procedures' element={<H2>Procedures</H2>} />
+                <Route path='/services' element={<H2>Services</H2>} />
                 <Route 
                     path='/admin/:id' 
                     element={<PrivateRoute redirectTo='/login' component={<AdminInfoPage />} />} 
