@@ -13,15 +13,20 @@ export const AdminInfoPage = () => {
                 <p>
                     <span className="font-semibold">Admin ID: </span>{params.id}
                 </p>
-                <p>
-                    <span className="font-semibold">Name: </span>{currentAdmin?.name}
-                </p>
-                <p>
-                    <span className="font-semibold">Login: </span>{currentAdmin?.login}
-                </p>
-                <p>
-                    <span className="font-semibold">Status: </span>{currentAdmin?.status}
-                </p>
+                {
+                    currentAdmin?.id === params.id &&
+                    <>
+                        <p>
+                            <span className="font-semibold">Name: </span>{currentAdmin?.name}
+                        </p>
+                        <p>
+                            <span className="font-semibold">Login: </span>{currentAdmin?.login}
+                        </p>
+                        <p>
+                            <span className="font-semibold">Status: </span>{currentAdmin?.status}
+                        </p>
+                    </>
+                }
             </div>
         </div>
     )
