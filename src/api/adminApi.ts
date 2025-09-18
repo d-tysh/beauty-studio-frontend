@@ -28,6 +28,9 @@ export const adminApi = api.injectEndpoints({
         getAllAdmins: builder.query<{count: number, result: IAdmin[]}, void>({
             query: () => '/admin/all'
         }),
+        getAdminById: builder.query<IAdmin, string>({
+            query: (id: string) => `/admin/${id}`
+        }),
     })
 })
 
@@ -36,4 +39,5 @@ export const {
     useLogoutMutation,
     useGetCurrentAdminQuery,
     useGetAllAdminsQuery,
+    useGetAdminByIdQuery,
 } = adminApi;
