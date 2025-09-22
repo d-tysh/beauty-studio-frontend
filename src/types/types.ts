@@ -12,7 +12,7 @@ export interface IAdmin {
 }
 
 export interface IAdminState {
-    admin: IAdmin | null,
+    currentAdmin: IAdmin | null,
     isLoggedIn: boolean,
     isLoading: boolean,
 }

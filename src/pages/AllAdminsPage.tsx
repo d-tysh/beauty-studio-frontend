@@ -1,15 +1,17 @@
 import { useEffect } from "react";
 import { useGetAllAdminsQuery } from "../api/adminApi"
 import { Loader } from "../components/Loader";
-import { selectAdmin } from "../redux/admin/selectors";
+import { selectCurrentAdmin } from "../redux/admin/selectors";
 import { useAppSelector } from "../redux/hooks";
 import { useNavigate } from "react-router-dom";
 import { H2 } from "../components/headers/H2";
-import { AdminsList } from "../components/adminComponents/adminsList";
+import { AdminsList } from "../components/adminComponents/AdminsList";
 
 export const AllAdminsPage = () => {
-    const { data, isLoading, error } = useGetAllAdminsQuery();
-    const currentAdmin = useAppSelector(selectAdmin);
+    const { data, isLoading, error } = useGetAllAdminsQuery(undefined, {
+        refetchOnMountOrArgChange: true
+    });
+    const currentAdmin = useAppSelector(selectCurrentAdmin);
     const navigate = useNavigate();
 
     useEffect(() => {

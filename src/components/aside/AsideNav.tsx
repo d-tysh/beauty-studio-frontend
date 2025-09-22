@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom"
 import { useAppSelector } from "../../redux/hooks"
-import { selectAdmin, selectIsLoggedIn } from "../../redux/admin/selectors"
+import { selectCurrentAdmin, selectIsLoggedIn } from "../../redux/admin/selectors"
 
 export const AsideNav = () => {
     const isLoggedIn = useAppSelector(selectIsLoggedIn);
-    const currentAdmin = useAppSelector(selectAdmin);
+    const currentAdmin = useAppSelector(selectCurrentAdmin);
 
     return (
         <nav className="flex flex-col lg:items-start">

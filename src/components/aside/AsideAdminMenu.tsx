@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLogoutMutation } from "../../api/adminApi";
-import { selectAdmin, selectIsLoggedIn } from "../../redux/admin/selectors";
+import { selectCurrentAdmin, selectIsLoggedIn } from "../../redux/admin/selectors";
 import { adminLogout } from "../../redux/admin/slice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { Button } from "../Button";
@@ -8,7 +8,7 @@ import { Loader } from "../Loader";
 import { AsideNav } from "./AsideNav";
 
 export const AsideAdminMenu = () => {
-    const admin = useAppSelector(selectAdmin);
+    const admin = useAppSelector(selectCurrentAdmin);
     const isLoggedIn = useAppSelector(selectIsLoggedIn);
     const [logout, { isLoading: isLogoutLoading }] = useLogoutMutation();
     const dispatch = useAppDispatch();
