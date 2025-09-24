@@ -1,7 +1,9 @@
+import { H2 } from "../components/headers/H2"
+
 export const RegisterPage = () => {
     return (
         <div>
-            <h2 className="text-2xl font-bold bg-amber-200 p-4">Register</h2>
+            <H2>Register</H2>
         </div>
     )
 }

@@ -2,8 +2,8 @@ import type { IService } from "../../types/service"
 
 export const ServicesListItem = ({ service }: { service: IService }) => {
     return (
-        <li className="servise-list-item">
-            <table className="servise-table">
+        <li className="custom-list-item">
+            <table className="custom-table">
                 <tbody>
                     <tr>
                         <td>Service</td>

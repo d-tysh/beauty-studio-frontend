@@ -1,9 +1,10 @@
 import { LoginForm } from "../components/auth/LoginForm"
+import { H2 } from "../components/headers/H2"
 
 export const LoginPage = () => {
     return (
         <>
-            <h2 className="text-2xl font-bold bg-amber-200 p-4">Login</h2>
+            <H2>Login</H2>
             <div className="p-4 flex justify-center">
                 <LoginForm />
             </div>

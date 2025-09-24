@@ -24,12 +24,29 @@ export const adminApi = api.injectEndpoints({
         }),
         getCurrentAdmin: builder.query<IAdmin, void>({
             query: () => '/admin/current',
-        })
+        }),
+        getAllAdmins: builder.query<{count: number, result: IAdmin[]}, void>({
+            query: () => '/admin/all'
+        }),
+        getAdminById: builder.query<IAdmin, string>({
+            query: (id: string) => `/admin/${id}`,
+        }),
+        updateAdminById: builder.mutation<Partial<IAdmin>, {id: string, data: Partial<IAdmin>}>({
+            query: ({id, data}) => ({
+                url: `/admin/update/${id}`,
+                method: 'PATCH',
+                body: data
+            })
+        }),
     })
 })
 
 export const {
     useLoginMutation,
     useLogoutMutation,
-    useGetCurrentAdminQuery
+    useGetCurrentAdminQuery,
+    useLazyGetCurrentAdminQuery,
+    useGetAllAdminsQuery,
+    useGetAdminByIdQuery,
+    useUpdateAdminByIdMutation,
 } = adminApi;

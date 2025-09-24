@@ -3,6 +3,7 @@ export interface IState {
 }
 
 export interface IAdmin {
+    _id?: string,
     id: string,
     name: string,
     login: string,
@@ -11,7 +12,7 @@ export interface IAdmin {
 }
 
 export interface IAdminState {
-    admin: IAdmin | null,
+    currentAdmin: IAdmin | null,
     isLoggedIn: boolean,
     isLoading: boolean,
 }

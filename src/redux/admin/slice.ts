@@ -2,7 +2,7 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { IAdmin, IAdminState } from "../../types/types";
 
 const initialState: IAdminState = {
-    admin: null,
+    currentAdmin: null,
     isLoggedIn: false,
     isLoading: false
 }
@@ -12,12 +12,12 @@ const adminSlice = createSlice({
     initialState,
     reducers: {
         adminLogin: (state, action: PayloadAction<IAdmin>) => {
-            state.admin = action.payload;
+            state.currentAdmin = action.payload;
             state.isLoggedIn = true;
             state.isLoading = false;
         },
         adminLogout: (state) => {
-            state.admin = null;
+            state.currentAdmin = null;
             state.isLoggedIn = false;
             state.isLoading = false;
         },
