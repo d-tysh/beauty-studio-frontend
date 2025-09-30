@@ -9,6 +9,7 @@ import { PrivateRoute } from './components/PrivateRoute'
 import { AllAdminsPage } from './pages/AllAdminsPage'
 import { H2 } from './components/headers/H2'
 import { ServicesPage } from './pages/ServicesPage'
+import { ServiceInfoPage } from './pages/ServiceInfoPage'
 
 export const AppRoutes = () => {
     return (
@@ -28,7 +29,12 @@ export const AppRoutes = () => {
                 <Route path='/procedures' element={<H2>Procedures</H2>} />
                 <Route 
                     path='/services' 
-                    element={<PrivateRoute redirectTo='/login' component={<ServicesPage />} />} />
+                    element={<PrivateRoute redirectTo='/login' component={<ServicesPage />} />} 
+                />
+                <Route 
+                    path='/services/:serviceId' 
+                    element={<PrivateRoute redirectTo='/login' component={<ServiceInfoPage />} />} 
+                />
                 <Route 
                     path='/admin/:id' 
                     element={<PrivateRoute redirectTo='/login' component={<AdminInfoPage />} />} 

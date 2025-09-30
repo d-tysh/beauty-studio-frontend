@@ -4,16 +4,18 @@ import { Loader } from "../components/Loader";
 import { ServicesList } from "../components/serviceComponents/ServicesList";
 
 export const ServicesPage = () => {
-    const { data: services, isLoading, error } = useGetServicesQuery();
+    const { data: services, isLoading, isFetching, error } = useGetServicesQuery(undefined, {
+        refetchOnMountOrArgChange: true
+    });
 
     return (
         <>
             <H2>Services</H2>
             <div className="p-4 flex justify-center">
-                {isLoading && <Loader />}
+                {(isLoading || isFetching) && <Loader />}
                 {error && <p>Something went wrong...</p>}
                 {
-                    !isLoading && !error && services && <ServicesList services={services.data} />
+                    !isLoading && !isFetching && !error && services && <ServicesList services={services.data} />
                 }
             </div>
         </>
