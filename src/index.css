@@ -26,16 +26,6 @@ nav a {
   color: #fff;
 }
 
-/* nav a.active {
-  color: #000;
-  background-color: white;
-} */
-
-/* nav a:hover {
-  color: #000;
-  background-color: rgb(216, 216, 216);
-} */
-
 body {
   margin: 0;
   min-width: 320px;
@@ -121,4 +111,8 @@ aside > div::-webkit-scrollbar {
 
 .custom-table tr > td:nth-child(2) {
   @apply px-4 py-2 w-full;
+}
+
+.service-form-label {
+  @apply flex flex-col items-start gap-1 md:flex-row md:items-center;
 }
