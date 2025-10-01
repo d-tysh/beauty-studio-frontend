@@ -1,0 +1,37 @@
+import { Form, Formik, type FormikHelpers } from "formik"
+import type { IService } from "../../types/service";
+import { Button } from "../Button";
+import { useServiceAdd } from "../../hooks/serviceHooks/useServiceAdd";
+import { ServiceFormFields } from "./ServiceFormFields";
+
+export const ServiceAddForm = ({ refetch }: { refetch: () => void }) => {
+    const { handleAddService, isLoading } = useServiceAdd();
+
+    const handleSubmit = async (
+        data: Omit<IService, '_id'>,
+        { resetForm }: FormikHelpers<Omit<IService, '_id'>>
+    ) => {
+        await handleAddService(data);
+        resetForm();
+        refetch();
+    }
+
+    return (
+        <Formik<Omit<IService, '_id'>>
+            initialValues={{
+                serviceName: '',
+                description: '',
+                price: '',
+                time: ''
+            }}
+            onSubmit={handleSubmit}
+        >
+            <Form className="flex flex-col gap-4 max-w-120 mx-auto my-4 text-left">
+                <ServiceFormFields />
+                <Button className="custom-form-button" isLoading={isLoading}>
+                    Add
+                </Button>
+            </Form>
+        </Formik>
+    )
+}

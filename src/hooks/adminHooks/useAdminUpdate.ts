@@ -1,9 +1,9 @@
-import { useLazyGetCurrentAdminQuery, useUpdateAdminByIdMutation } from "../api/adminApi";
+import { useLazyGetCurrentAdminQuery, useUpdateAdminByIdMutation } from "../../api/adminApi";
 import { toast } from "react-toastify";
-import { adminLogin } from "../redux/admin/slice";
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import { selectCurrentAdmin } from "../redux/admin/selectors";
-import type { IAdmin } from "../types/types";
+import { adminLogin } from "../../redux/admin/slice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { selectCurrentAdmin } from "../../redux/admin/selectors";
+import type { IAdmin } from "../../types/types";
 
 export const useAdminUpdate = (id: string) => {
     const currentAdmin = useAppSelector(selectCurrentAdmin);

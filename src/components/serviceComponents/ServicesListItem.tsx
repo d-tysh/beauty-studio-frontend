@@ -2,26 +2,28 @@ import { Link } from "react-router-dom"
 import type { IService } from "../../types/service"
 
 export const ServicesListItem = ({ service }: { service: IService }) => {
+    const { _id: id, serviceName, description, price, time } = service;
+
     return (
         <li className="custom-list-item">
-            <Link to={service._id}>
+            <Link to={id}>
                 <table className="custom-table">
                     <tbody>
                         <tr>
                             <td>Service</td>
-                            <td>{service.serviceName}</td>
+                            <td>{serviceName}</td>
                         </tr>
                         <tr>
                             <td>Description</td>
-                            <td>{service.description}</td>
+                            <td>{description || '—'}</td>
                         </tr>
                         <tr>
                             <td>Price</td>
-                            <td>{service.price}</td>
+                            <td>{price}</td>
                         </tr>
                         <tr>
                             <td>Time</td>
-                            <td>{service.time}</td>
+                            <td>{time}</td>
                         </tr>
                     </tbody>
                 </table>

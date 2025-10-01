@@ -15,6 +15,19 @@ export const serviceApi = api.injectEndpoints({
                 method: 'PATCH',
                 body: data
             })
+        }),
+        addService: builder.mutation({
+            query: (data) => ({
+                url: `/services`,
+                method: 'POST',
+                body: data
+            })
+        }),
+        deleteService: builder.mutation({
+            query: (serviceId) => ({
+                url: `/services/${serviceId}`,
+                method: 'DELETE'
+            })
         })
     })
 })
@@ -23,4 +36,6 @@ export const {
     useGetServicesQuery,
     useGetServiceByIdQuery,
     useUpdateServiceByIdMutation,
+    useAddServiceMutation,
+    useDeleteServiceMutation,
 } = serviceApi;

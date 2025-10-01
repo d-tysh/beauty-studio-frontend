@@ -60,7 +60,7 @@ button {
 }
 
 .custom-form-button {
-  @apply mt-2 shadow hover:shadow-xl;
+  @apply shadow hover:shadow-xl;
 }
 
 .header-nav-link {
@@ -94,7 +94,7 @@ aside > div::-webkit-scrollbar {
 }
 
 .custom-list-item {
-  @apply font-medium bg-amber-50 shadow-xl w-100 rounded-2xl text-left
+  @apply font-medium bg-amber-50 shadow-xl w-120 rounded-2xl text-left
 }
 
 .custom-list-item:hover {
@@ -106,7 +106,7 @@ aside > div::-webkit-scrollbar {
 }
 
 .custom-table tr > td:nth-child(1) {
-  @apply border-r-2 px-4 py-2 border-amber-200;
+  @apply border-r-2 px-4 py-2 border-amber-200 min-w-30;
 }
 
 .custom-table tr > td:nth-child(2) {
