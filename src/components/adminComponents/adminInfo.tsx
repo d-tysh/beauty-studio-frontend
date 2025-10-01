@@ -3,7 +3,7 @@ import type { IAdmin } from "../../types/types"
 import { Button } from "../Button";
 import { useAppSelector } from "../../redux/hooks";
 import { selectCurrentAdmin } from "../../redux/admin/selectors";
-import { useAdminUpdate } from "../../hooks/useAdminUpdate";
+import { useAdminUpdate } from "../../hooks/adminHooks/useAdminUpdate";
 
 export const AdminInfo = ({ adminInfo }: { adminInfo: IAdmin }) => {
     const { _id: id, name, login, status, email } = adminInfo;

@@ -1,7 +1,7 @@
 import { Field, Form, Formik } from "formik"
 import { Loader } from "../Loader";
 import { Button } from "../Button";
-import { useAdminLogin } from "../../hooks/useAdminLogin";
+import { useAdminLogin } from "../../hooks/adminHooks/useAdminLogin";
 
 export const LoginForm = () => {
     const { handleLogin, isLoading } = useAdminLogin();
