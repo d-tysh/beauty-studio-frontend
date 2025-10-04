@@ -3,6 +3,7 @@ import type { IService } from "../../types/service";
 import { Button } from "../Button";
 import { useServiceAdd } from "../../hooks/serviceHooks/useServiceAdd";
 import { ServiceFormFields } from "./ServiceFormFields";
+import { FormWrapper } from "../form/FormWrapper";
 
 export const ServiceAddForm = ({ refetch }: { refetch: () => void }) => {
     const { handleAddService, isLoading } = useServiceAdd();
@@ -17,21 +18,23 @@ export const ServiceAddForm = ({ refetch }: { refetch: () => void }) => {
     }
 
     return (
-        <Formik<Omit<IService, '_id'>>
-            initialValues={{
-                serviceName: '',
-                description: '',
-                price: '',
-                time: ''
-            }}
-            onSubmit={handleSubmit}
-        >
-            <Form className="flex flex-col gap-4 max-w-120 mx-auto my-4 text-left">
-                <ServiceFormFields />
-                <Button className="custom-form-button" isLoading={isLoading}>
-                    Add
-                </Button>
-            </Form>
-        </Formik>
+        <FormWrapper>
+            <Formik<Omit<IService, '_id'>>
+                initialValues={{
+                    serviceName: '',
+                    description: '',
+                    price: '',
+                    time: ''
+                }}
+                onSubmit={handleSubmit}
+            >
+                <Form className="flex flex-col gap-4 max-w-120 mx-auto my-4 text-left">
+                    <ServiceFormFields />
+                    <Button className="custom-form-button" isLoading={isLoading}>
+                        Add
+                    </Button>
+                </Form>
+            </Formik>
+        </FormWrapper>
     )
 }
