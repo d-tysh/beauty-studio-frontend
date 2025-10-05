@@ -99,7 +99,7 @@ aside > div::-webkit-scrollbar {
 }
 
 .custom-list-item {
-  @apply font-medium bg-amber-50 shadow-xl w-120 rounded-2xl text-left
+  @apply font-medium shadow-xl w-120 rounded-2xl text-left
 }
 
 .custom-list-item:hover {

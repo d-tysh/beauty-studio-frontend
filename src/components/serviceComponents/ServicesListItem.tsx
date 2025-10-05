@@ -5,7 +5,7 @@ export const ServicesListItem = ({ service }: { service: IService }) => {
     const { _id: id, serviceName, description, price, time } = service;
 
     return (
-        <li className="custom-list-item">
+        <li className="custom-list-item bg-amber-50">
             <Link to={id}>
                 <table className="custom-table">
                     <tbody>
