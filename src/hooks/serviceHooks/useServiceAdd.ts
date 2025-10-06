@@ -21,6 +21,7 @@ export const useServiceAdd = () => {
             else {
                 toast.error("Unable to add service");
             }
+            throw error;
         }
     }
 

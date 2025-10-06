@@ -11,7 +11,8 @@ export const useAdminRegister = () => {
             toast.success(result.message || 'Admin added')
         } catch (error) {
             const { data } = error as { data?: { message?: string }, status: number };
-            toast.error(data?.message || 'Unable to add user')
+            toast.error(data?.message || 'Unable to add user');
+            throw error;
         }
     }
 
