@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useGetAllAdminsQuery } from "../api/adminApi"
 import { Loader } from "../components/Loader";
 import { selectCurrentAdmin } from "../redux/admin/selectors";
@@ -6,12 +6,15 @@ import { useAppSelector } from "../redux/hooks";
 import { useNavigate } from "react-router-dom";
 import { H2 } from "../components/headers/H2";
 import { AdminsList } from "../components/adminComponents/AdminsList";
+import { AdminAddForm } from "../components/adminComponents/AdminAddForm";
+import { Button } from "../components/Button";
 
 export const AllAdminsPage = () => {
-    const { data, isLoading, error } = useGetAllAdminsQuery(undefined, {
+    const { data, isLoading, error, isFetching, refetch } = useGetAllAdminsQuery(undefined, {
         refetchOnMountOrArgChange: true
     });
     const currentAdmin = useAppSelector(selectCurrentAdmin);
+    const [isAddFormOpen, setIsAddFormOpen] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -20,14 +23,25 @@ export const AllAdminsPage = () => {
         }
     }, [currentAdmin, navigate, error])
 
+    const handleAddFormState = () => {
+        setIsAddFormOpen(!isAddFormOpen);
+    };
+
+    const btnText = isAddFormOpen ? '🗙 Cancel' : '➕ Add admin';
+
     return (
         <div>
             <H2>Admins</H2>
-            <div className="p-4 flex justify-center">
-                {isLoading && <Loader />}
+            <Button className="mx-auto mt-4 w-40" onClick={handleAddFormState}>
+                {btnText}
+            </Button>
+            {isAddFormOpen && <AdminAddForm refetch={refetch} />}
+            <div className="p-4 flex justify-center flex-col items-center">
+                {(isLoading || isFetching) && <div className="mx-auto"><Loader /></div>}
                 {error && !isLoading && <p>Error! Something went wrong...</p>}
                 {
-                    !error && !isLoading && currentAdmin?.status === 'pro' && data && <AdminsList admins={data.result} />
+                    !isLoading && !isFetching && currentAdmin?.status === 'pro' && data &&
+                    <AdminsList admins={data.result} />
                 }
             </div>
         </div>

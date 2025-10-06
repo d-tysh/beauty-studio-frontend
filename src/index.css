@@ -42,6 +42,11 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  cursor: not-allowed;
+  opacity: 50%;
+}
+
 .custom-form {
   @apply flex flex-col gap-4 justify-center w-80;
 }
@@ -94,7 +99,7 @@ aside > div::-webkit-scrollbar {
 }
 
 .custom-list-item {
-  @apply font-medium bg-amber-50 shadow-xl w-120 rounded-2xl text-left
+  @apply font-medium shadow-xl w-120 rounded-2xl text-left
 }
 
 .custom-list-item:hover {

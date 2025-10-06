@@ -1,4 +1,4 @@
-import type { IAdmin, IAdminLogin } from "../types/types";
+import type { IAdmin, IAdminLogin, IAdminRegister } from "../types/types";
 import { api } from "./api";
 
 interface ILogoutResponse {
@@ -25,19 +25,32 @@ export const adminApi = api.injectEndpoints({
         getCurrentAdmin: builder.query<IAdmin, void>({
             query: () => '/admin/current',
         }),
-        getAllAdmins: builder.query<{count: number, result: IAdmin[]}, void>({
+        getAllAdmins: builder.query<{ count: number, result: IAdmin[] }, void>({
             query: () => '/admin/all'
         }),
         getAdminById: builder.query<IAdmin, string>({
             query: (id: string) => `/admin/${id}`,
         }),
-        updateAdminById: builder.mutation<Partial<IAdmin>, {id: string, data: Partial<IAdmin>}>({
-            query: ({id, data}) => ({
+        updateAdminById: builder.mutation<Partial<IAdmin>, { id: string, data: Partial<IAdmin> }>({
+            query: ({ id, data }) => ({
                 url: `/admin/update/${id}`,
                 method: 'PATCH',
                 body: data
             })
         }),
+        register: builder.mutation({
+            query: (data: IAdminRegister) => ({
+                url: '/admin/register',
+                method: 'POST',
+                body: data
+            })
+        }),
+        deleteAdmin: builder.mutation({
+            query: (adminId) => ({
+                url: `/admin/${adminId}`,
+                method: 'DELETE'
+            })
+        })
     })
 })
 
@@ -49,4 +62,6 @@ export const {
     useGetAllAdminsQuery,
     useGetAdminByIdQuery,
     useUpdateAdminByIdMutation,
+    useRegisterMutation,
+    useDeleteAdminMutation,
 } = adminApi;

@@ -10,6 +10,8 @@ import { AllAdminsPage } from './pages/AllAdminsPage'
 import { H2 } from './components/headers/H2'
 import { ServicesPage } from './pages/ServicesPage'
 import { ServiceInfoPage } from './pages/ServiceInfoPage'
+import { AllClientsPage } from './pages/AllClientsPage'
+import { ClientInfoPage } from './pages/ClientInfoPage'
 
 export const AppRoutes = () => {
     return (
@@ -24,9 +26,28 @@ export const AppRoutes = () => {
                     path='/register' 
                     element={<RestrictedRoute redirectTo='/' component={<RegisterPage />} />} 
                 />
+                
+                {/* ADMIN */}
                 <Route path='/admins' element={<AllAdminsPage />} />
-                <Route path='/clients' element={<H2>Clients</H2>} />
+                <Route 
+                    path='/admin/:id' 
+                    element={<PrivateRoute redirectTo='/login' component={<AdminInfoPage />} />} 
+                />
+
+                {/* CLIENT */}
+                <Route 
+                    path='/clients' 
+                    element={<PrivateRoute redirectTo='/login' component={<AllClientsPage />} />} 
+                />
+                <Route 
+                    path='/clients/:clientId' 
+                    element={<PrivateRoute redirectTo='/login' component={<ClientInfoPage />} />} 
+                />
+
+                {/* PROCEDURE */}
                 <Route path='/procedures' element={<H2>Procedures</H2>} />
+                
+                {/* SERVICE */}
                 <Route 
                     path='/services' 
                     element={<PrivateRoute redirectTo='/login' component={<ServicesPage />} />} 
@@ -34,10 +55,6 @@ export const AppRoutes = () => {
                 <Route 
                     path='/services/:serviceId' 
                     element={<PrivateRoute redirectTo='/login' component={<ServiceInfoPage />} />} 
-                />
-                <Route 
-                    path='/admin/:id' 
-                    element={<PrivateRoute redirectTo='/login' component={<AdminInfoPage />} />} 
                 />
             </Route>
         </Routes>

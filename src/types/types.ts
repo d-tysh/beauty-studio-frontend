@@ -22,4 +22,19 @@ export interface IAdminLogin {
     password: string
 }
 
+export interface IAdminRegister {
+    name: string,
+    login: string,
+    email: string | '',
+    password: string,
+    status: ADMIN_STATUS
+}
+
+export interface IAdminUpdate {
+    name: string,
+    login: string,
+    email: string | '',
+    status: ADMIN_STATUS
+}
+
 type ADMIN_STATUS = 'pro' | 'basic';
