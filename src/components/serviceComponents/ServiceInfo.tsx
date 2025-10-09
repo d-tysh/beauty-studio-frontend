@@ -4,6 +4,7 @@ import { Button } from "../Button";
 import { useServiceUpdate } from "../../hooks/serviceHooks/useServiceUpdate";
 import { ServiceFormFields } from "./ServiceFormFields";
 import { useServiceDelete } from "../../hooks/serviceHooks/useServiceDelete";
+import { FormWrapper } from "../form/FormWrapper";
 
 export const ServiceInfo = ({ serviceInfo }: { serviceInfo: IService }) => {
     const { _id: serviceId, serviceName, description, price, time } = serviceInfo;
@@ -11,21 +12,23 @@ export const ServiceInfo = ({ serviceInfo }: { serviceInfo: IService }) => {
     const { handleDelete, isDeleteLoading } = useServiceDelete(serviceId);
 
     return (
-        <Formik
-            initialValues={{ serviceName, price, time, description: description || '-' }}
-            enableReinitialize
-            onSubmit={handleUpdate}
-        >
-            <Form className="flex flex-col gap-4 max-w-120 mx-auto mt-8 text-left">
-                <ServiceFormFields />
-                <Button className="custom-form-button mt-2" isLoading={isUpdateLoading}>
-                    💾 Update
-                </Button>
-                <Button className="custom-form-button" isLoading={isDeleteLoading}
-                    type='button' onClick={handleDelete}>
-                    ❌ Delete
-                </Button>
-            </Form>
-        </Formik>
+        <FormWrapper>
+            <Formik
+                initialValues={{ serviceName, price, time, description: description || '-' }}
+                enableReinitialize
+                onSubmit={handleUpdate}
+            >
+                <Form className="flex flex-col gap-4 max-w-120 mx-auto mt-8 text-left">
+                    <ServiceFormFields />
+                    <Button className="custom-form-button mt-2" isLoading={isUpdateLoading}>
+                        💾 Update
+                    </Button>
+                    <Button className="custom-form-button" isLoading={isDeleteLoading}
+                        type='button' onClick={handleDelete}>
+                        ❌ Delete
+                    </Button>
+                </Form>
+            </Formik>
+        </FormWrapper>
     )
 }

@@ -7,11 +7,12 @@ import { AdminInfoPage } from './pages/AdminInfoPage'
 import { RestrictedRoute } from './components/RestrictedRoute'
 import { PrivateRoute } from './components/PrivateRoute'
 import { AllAdminsPage } from './pages/AllAdminsPage'
-import { H2 } from './components/headers/H2'
 import { ServicesPage } from './pages/ServicesPage'
 import { ServiceInfoPage } from './pages/ServiceInfoPage'
 import { AllClientsPage } from './pages/AllClientsPage'
 import { ClientInfoPage } from './pages/ClientInfoPage'
+import { AllProceduresPage } from './pages/AllProceduresPage'
+import { ProcedureInfoPage } from './pages/ProcedureInfoPage'
 
 export const AppRoutes = () => {
     return (
@@ -45,8 +46,15 @@ export const AppRoutes = () => {
                 />
 
                 {/* PROCEDURE */}
-                <Route path='/procedures' element={<H2>Procedures</H2>} />
-                
+                <Route 
+                    path='/procedures' 
+                    element={<PrivateRoute redirectTo='/login' component={<AllProceduresPage />} />} 
+                />
+                <Route 
+                    path='/procedures/:procedureId' 
+                    element={<PrivateRoute redirectTo='/login' component={<ProcedureInfoPage />} />} 
+                />
+
                 {/* SERVICE */}
                 <Route 
                     path='/services' 
