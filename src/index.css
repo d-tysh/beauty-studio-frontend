@@ -119,6 +119,6 @@ aside > div::-webkit-scrollbar {
   @apply px-4 py-2 w-full;
 }
 
-.service-form-label {
+.custom-form-label {
   @apply flex flex-col items-start gap-1 md:flex-row md:items-center;
 }

@@ -10,7 +10,7 @@ interface FormFieldProps extends InputHTMLAttributes<HTMLInputElement>  {
 
 export const FormField = ({ label, name, as, className, ...props }: FormFieldProps) => {
     return (
-        <label className="service-form-label">
+        <label className="custom-form-label">
             <span className="font-semibold w-1/3 ml-2 md:ml-0">{label}</span>
             <Field
                 name={name}

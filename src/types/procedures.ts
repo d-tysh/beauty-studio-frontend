@@ -8,7 +8,7 @@ export interface IProcedure {
     date: Date,
     admin: IProcedureAdmin,
     client: IProcedureClient,
-    description: Omit<IService, "description">[]
+    services: IService[] | []
 }
 
 interface IProcedureAdmin {
@@ -23,3 +23,14 @@ interface IProcedureClient {
     description: string,
     discount: number
 }
+
+export type ProcedureData =
+    Pick<IProcedure, "procedureName" | "additionalInfo">
+    & {
+        day?: string,
+        time?: string,
+        admin: string,
+        client: string,
+        services: string[] | [],
+        price: number
+    };
