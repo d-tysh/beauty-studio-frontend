@@ -1,7 +1,8 @@
-import { Field, Form, Formik } from "formik"
+import { Form, Formik } from "formik"
 import { Loader } from "../Loader";
 import { Button } from "../Button";
 import { useAdminLogin } from "../../hooks/adminHooks/useAdminLogin";
+import { FormField } from "../form/FormField";
 
 export const LoginForm = () => {
     const { handleLogin, isLoading } = useAdminLogin();
@@ -14,23 +15,15 @@ export const LoginForm = () => {
             }}
             onSubmit={handleLogin}
         >
-            <Form className="custom-form md:mt-20">
-                <label className="custom-form-label">
-                    <span className="font-semibold">Login</span>
-                    <Field
-                        name='login' required autoComplete='off'
-                        placeholder='Enter login...'
-                        className='custom-form-field'
-                    />
-                </label>
-                <label className="custom-form-label">
-                    <span className="font-semibold">Password</span>
-                    <Field
-                        name='password' type='password' autoComplete='off' required
-                        placeholder='Enter password...'
-                        className='custom-form-field'
-                    />
-                </label>
+            <Form className="custom-form md:mt-20 text-left min-w-100">
+                <FormField 
+                    label="Login" name='login' required 
+                    autoComplete='off' placeholder='Enter login...' 
+                />
+                <FormField 
+                    label="Password" name='password' type='password' required 
+                    autoComplete='off' placeholder='Enter password...'
+                />
                 <Button className='custom-form-button'>
                     {isLoading ? <Loader /> : 'Login'}
                 </Button>

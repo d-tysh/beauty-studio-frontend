@@ -1,10 +1,11 @@
-import type { IProcedure, ProcedureData } from "../../types/procedures"
+import type { IProcedure } from "../../types/procedures"
 import { FormWrapper } from "../form/FormWrapper";
 import { Field, Form, Formik } from "formik";
 import { Button } from "../Button";
 import { useHandleDate } from "../../hooks/useHandleDate";
 import { ProcedureFormFields } from "./ProcedureFormFields";
 import { useGetServicesQuery } from "../../api/serviceApi";
+import { useProcedureUpdate } from "../../hooks/procedureHooks/useProcedureUpdate";
 
 export const ProcedureInfo = ({ procedureInfo }: { procedureInfo: IProcedure }) => {
     const { _id: procedureId, procedureName, date, additionalInfo, services, admin, client, price = 0 } = procedureInfo;
@@ -14,31 +15,8 @@ export const ProcedureInfo = ({ procedureInfo }: { procedureInfo: IProcedure }) 
     const { data: servicesData, isError: isServicesError } = useGetServicesQuery(undefined, {
         refetchOnMountOrArgChange: true
     });
-
-    const handleSubmit = (data: ProcedureData) => {
-        const { day, time, ...procedureData } = data;
-        const date = `${day}T${time}`;
-        const services: string[] = data.services;
-
-        const price = servicesData?.data.reduce((acc, item) => {
-            if ((services).includes(item._id)) {
-                return acc + Number(item.price);
-            }
-            return acc;
-        }, 0)
-        
-        console.log("UPDATE:", { 
-            ...procedureData, 
-            date, 
-            admin: admin._id, 
-            client: client._id,
-            price
-        });
-    }
-
-    const handleDelete = () => {
-        console.log("DELETE:", procedureId);
-    }
+    
+    const { updateProcedure, isUpdateLoading } = useProcedureUpdate({procedureId, servicesData, admin, client});
 
     return (
         <div className="flex flex-col">
@@ -51,7 +29,7 @@ export const ProcedureInfo = ({ procedureInfo }: { procedureInfo: IProcedure }) 
                         services: selectedServices
                     }}
                     enableReinitialize
-                    onSubmit={handleSubmit}
+                    onSubmit={updateProcedure}
                 >
                     <Form className="flex flex-col gap-4 w-120 mx-auto mt-8 text-left">
                         <ProcedureFormFields client={client} admin={admin} />
@@ -75,11 +53,11 @@ export const ProcedureInfo = ({ procedureInfo }: { procedureInfo: IProcedure }) 
                             </div>
                         </label>
 
-                        <Button className="custom-form-button mt-2" isLoading={false} type="submit">
+                        <Button className="custom-form-button mt-2" isLoading={isUpdateLoading} type="submit">
                             💾 Update
                         </Button>
                         <Button className="custom-form-button" isLoading={false}
-                            type='button' onClick={handleDelete}>
+                            type='button' onClick={() => console.log("DELETE:", procedureId)}>
                             ❌ Delete
                         </Button>
                     </Form>

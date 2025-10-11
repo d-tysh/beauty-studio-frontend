@@ -8,10 +8,18 @@ export const procedureApi = api.injectEndpoints({
         getProcedureById: builder.query({
             query: (procedureId) => `/procedures/${procedureId}`
         }),
+        updateProcedureById: builder.mutation({
+            query: ({ procedureId, data }) => ({
+                url: `/procedures/${procedureId}`,
+                method: 'PATCH',
+                body: data
+            })
+        }),
     })
 })
 
 export const {
     useGetAllProceduresQuery,
     useGetProcedureByIdQuery,
+    useUpdateProcedureByIdMutation,
 } = procedureApi;
