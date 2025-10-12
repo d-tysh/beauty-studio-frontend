@@ -5,7 +5,7 @@ import { FormWrapper } from "../form/FormWrapper";
 import { useAdminRegister } from "../../hooks/adminHooks/useAdminRegister";
 import type { IAdminRegister } from "../../types/types";
 
-export const AdminAddForm = ({ register, refetch }: { register: boolean, refetch?: () => void }) => {
+export const AdminAddForm = ({ register, refetch }: { register?: boolean, refetch?: () => void }) => {
     const { addAdmin, isLoading } = useAdminRegister();
 
     const handleSubmit = async (data: IAdminRegister, { resetForm }: FormikHelpers<IAdminRegister>) => {

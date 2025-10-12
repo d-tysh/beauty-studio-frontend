@@ -8,6 +8,7 @@ import { selectCurrentAdmin } from "../../redux/admin/selectors";
 import { useAdminDelete } from "../../hooks/adminHooks/useAdminDelete";
 import { FormWrapper } from "../form/FormWrapper";
 
+
 export const AdminInfo = ({ adminInfo }: { adminInfo: IAdmin }) => {
     const currentAdmin = useAppSelector(selectCurrentAdmin);
     const { _id: id, name, login, status, email } = adminInfo;
