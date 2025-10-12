@@ -32,6 +32,10 @@ export const ProceduresListItem = ({ procedure }: { procedure: IProcedure }) => 
                                 <td>{procedure.admin.name}</td>
                             </tr>
                         }
+                        <tr>
+                            <td>Price</td>
+                            <td>{procedure.price}</td>
+                        </tr>
                     </tbody>
                 </table>
             </Link>

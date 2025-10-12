@@ -12,7 +12,7 @@ const AdminStatusField = () => (
     </div>
 )
 
-export const AdminFormFields = ({ id, addAdmin }: { id?: string, addAdmin?: boolean }) => {
+export const AdminFormFields = ({ id, addAdmin, register }: { id?: string, addAdmin?: boolean, register?: boolean }) => {
     const currentAdmin = useAppSelector(selectCurrentAdmin);
 
     return (
@@ -27,7 +27,7 @@ export const AdminFormFields = ({ id, addAdmin }: { id?: string, addAdmin?: bool
                 />
             }
             {
-                currentAdmin?.status === 'pro' &&
+                currentAdmin?.status === 'pro' && !register &&
                 <label className="flex flex-col md:flex-row md:items-center">
                     <span className="font-semibold w-1/3 ml-2 md:ml-0">Status</span>
                     {
@@ -35,7 +35,7 @@ export const AdminFormFields = ({ id, addAdmin }: { id?: string, addAdmin?: bool
                             :
                             <>
                                 {
-                                    currentAdmin?._id !== id ?
+                                    currentAdmin?.id !== id ?
                                         <AdminStatusField />
                                         :
                                         <Field name='status' className='custom-form-field cursor-not-allowed' readOnly />

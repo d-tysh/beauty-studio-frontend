@@ -8,7 +8,7 @@ export const useAdminRegister = () => {
     const addAdmin = async (data: IAdminRegister) => {
         try {
             const result = await register(data).unwrap();
-            toast.success(result.message || 'Admin added')
+            toast.success(result.message || 'Admin registered')
         } catch (error) {
             const { data } = error as { data?: { message?: string }, status: number };
             toast.error(data?.message || 'Unable to add user');

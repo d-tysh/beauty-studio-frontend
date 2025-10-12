@@ -5,11 +5,16 @@ import { useServiceUpdate } from "../../hooks/serviceHooks/useServiceUpdate";
 import { ServiceFormFields } from "./ServiceFormFields";
 import { useServiceDelete } from "../../hooks/serviceHooks/useServiceDelete";
 import { FormWrapper } from "../form/FormWrapper";
+import { selectCurrentAdmin } from "../../redux/admin/selectors";
+import { useAppSelector } from "../../redux/hooks";
 
 export const ServiceInfo = ({ serviceInfo }: { serviceInfo: IService }) => {
     const { _id: serviceId, serviceName, description, price, time } = serviceInfo;
     const { handleUpdate, isUpdateLoading } = useServiceUpdate(serviceId);
     const { handleDelete, isDeleteLoading } = useServiceDelete(serviceId);
+    const currentAdmin = useAppSelector(selectCurrentAdmin);
+
+    const btnDisabled = currentAdmin?.status !== 'pro';
 
     return (
         <FormWrapper>
@@ -20,7 +25,8 @@ export const ServiceInfo = ({ serviceInfo }: { serviceInfo: IService }) => {
             >
                 <Form className="flex flex-col gap-4 max-w-120 mx-auto my-8 text-left">
                     <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
-                        type='button' onClick={handleDelete}>
+                        type='button' onClick={handleDelete} disabled={btnDisabled}
+                    >
                         ❌ Delete
                     </Button>
                     <ServiceFormFields />

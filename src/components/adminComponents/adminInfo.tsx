@@ -16,7 +16,7 @@ export const AdminInfo = ({ adminInfo }: { adminInfo: IAdmin }) => {
 
     const deleteAdmin = () => id && handleDeleteAdmin(id);
 
-    const deleteBtnDisabled = currentAdmin?._id === id && currentAdmin?.status === 'pro';
+    const deleteBtnDisabled = currentAdmin?.id === id && currentAdmin?.status === 'pro';
 
     return (
         <FormWrapper>
