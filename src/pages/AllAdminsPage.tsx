@@ -4,7 +4,7 @@ import { Loader } from "../components/Loader";
 import { selectCurrentAdmin } from "../redux/admin/selectors";
 import { useAppSelector } from "../redux/hooks";
 import { useNavigate } from "react-router-dom";
-import { H2 } from "../components/headers/H2";
+import { H2 } from "../components/H2";
 import { AdminsList } from "../components/adminComponents/AdminsList";
 import { AdminAddForm } from "../components/adminComponents/AdminAddForm";
 import { Button } from "../components/Button";

@@ -35,7 +35,7 @@ export const AdminFormFields = ({ id, addAdmin }: { id?: string, addAdmin?: bool
                             :
                             <>
                                 {
-                                    currentAdmin?.id !== id ?
+                                    currentAdmin?._id !== id ?
                                         <AdminStatusField />
                                         :
                                         <Field name='status' className='custom-form-field cursor-not-allowed' readOnly />

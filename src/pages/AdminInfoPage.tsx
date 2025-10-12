@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { H2 } from "../components/headers/H2";
+import { H2 } from "../components/H2";
 import { useGetAdminByIdQuery } from "../api/adminApi";
 import { Loader } from "../components/Loader";
 import { AdminInfo } from "../components/adminComponents/AdminInfo";

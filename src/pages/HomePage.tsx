@@ -1,4 +1,4 @@
-import { H2 } from "../components/headers/H2";
+import { H2 } from "../components/H2";
 
 export const HomePage = () => {
 

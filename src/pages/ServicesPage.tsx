@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useGetServicesQuery } from "../api/serviceApi";
 import { Button } from "../components/Button";
-import { H2 } from "../components/headers/H2";
+import { H2 } from "../components/H2";
 import { Loader } from "../components/Loader";
 import { ServicesList } from "../components/serviceComponents/ServicesList";
 import { ServiceAddForm } from "../components/serviceComponents/ServiceAddForm";
