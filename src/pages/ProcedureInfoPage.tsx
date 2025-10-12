@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { H2 } from "../components/headers/H2"
+import { H2 } from "../components/H2"
 import { useGetProcedureByIdQuery } from "../api/procedureApi";
 import { Loader } from "../components/Loader";
 import { ProcedureInfo } from "../components/procedureComponents/ProcedureInfo";

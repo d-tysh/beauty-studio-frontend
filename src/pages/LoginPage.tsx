@@ -1,5 +1,5 @@
 import { LoginForm } from "../components/auth/LoginForm"
-import { H2 } from "../components/headers/H2"
+import { H2 } from "../components/H2"
 
 export const LoginPage = () => {
     return (

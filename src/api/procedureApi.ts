@@ -15,6 +15,19 @@ export const procedureApi = api.injectEndpoints({
                 body: data
             })
         }),
+        createProcedure: builder.mutation({
+            query: (data) => ({
+                url: `/procedures/`,
+                method: 'POST',
+                body: data
+            })
+        }),
+        deleteProcedure: builder.mutation({
+            query: (procedureId) => ({
+                url: `/procedures/${procedureId}`,
+                method: 'DELETE'
+            })
+        })
     })
 })
 
@@ -22,4 +35,6 @@ export const {
     useGetAllProceduresQuery,
     useGetProcedureByIdQuery,
     useUpdateProcedureByIdMutation,
+    useCreateProcedureMutation,
+    useDeleteProcedureMutation,
 } = procedureApi;

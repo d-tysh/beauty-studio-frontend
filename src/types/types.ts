@@ -3,8 +3,8 @@ export interface IState {
 }
 
 export interface IAdmin {
-    _id?: string,
-    id: string,
+    _id: string,
+    id?: string,
     name: string,
     login: string,
     email: string,

@@ -10,7 +10,7 @@ export const AdminsListItem = ({ admin }: { admin: IAdmin }) => {
         <li className={`
             custom-list-item bg-amber-50
             ${admin.status === 'pro' && 'bg-amber-100'}
-            ${currentAdmin?.id === admin._id && 'bg-yellow-200'}
+            ${currentAdmin?._id === admin._id && 'bg-yellow-200'}
         `}>
             <Link to={`/admin/${admin._id}`}>
                 <table className="custom-table">

@@ -18,14 +18,14 @@ export const ServiceInfo = ({ serviceInfo }: { serviceInfo: IService }) => {
                 enableReinitialize
                 onSubmit={handleUpdate}
             >
-                <Form className="flex flex-col gap-4 max-w-120 mx-auto mt-8 text-left">
+                <Form className="flex flex-col gap-4 max-w-120 mx-auto my-8 text-left">
+                    <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
+                        type='button' onClick={handleDelete}>
+                        ❌ Delete
+                    </Button>
                     <ServiceFormFields />
                     <Button className="custom-form-button mt-2" isLoading={isUpdateLoading}>
                         💾 Update
-                    </Button>
-                    <Button className="custom-form-button" isLoading={isDeleteLoading}
-                        type='button' onClick={handleDelete}>
-                        ❌ Delete
                     </Button>
                 </Form>
             </Formik>

@@ -1,19 +1,6 @@
 import { toast } from "react-toastify";
 import { useUpdateProcedureByIdMutation } from "../../api/procedureApi";
-import type { ProcedureData } from "../../types/procedures";
-import type { IAdmin } from "../../types/types";
-import type { IService } from "../../types/service";
-import type { IClient } from "../../types/client";
-
-interface ProcedureUpdateProps {
-    procedureId: string, 
-    servicesData?: {
-        count: number,
-        data: IService[] | []
-    },
-    admin: Pick<IAdmin, '_id' | 'name'>, 
-    client: Pick<IClient, '_id' | 'name'>
-}
+import type { ProcedureData, ProcedureUpdateProps } from "../../types/procedures";
 
 export const useProcedureUpdate = ({procedureId, servicesData, admin, client}: ProcedureUpdateProps) => {
     const [updateProcedureById, { isLoading: isUpdateLoading }] = useUpdateProcedureByIdMutation();

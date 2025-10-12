@@ -16,7 +16,7 @@ export const useAdminUpdate = (id: string) => {
             await updateAdminById({ id, data }).unwrap();
             toast.success('Data updated');
 
-            if (id === currentAdmin?.id) {
+            if (id === currentAdmin?._id) {
                 const updatedData = await getCurrentAdmin().unwrap();
                 dispatch(adminLogin(updatedData));
             }

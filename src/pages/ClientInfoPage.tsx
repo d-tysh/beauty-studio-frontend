@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { H2 } from "../components/headers/H2"
+import { H2 } from "../components/H2"
 import { useGetClientByIdQuery } from "../api/clientApi";
 import { Loader } from "../components/Loader";
 import { ClientInfo } from "../components/clientComponents/ClientInfo";

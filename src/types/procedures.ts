@@ -1,4 +1,6 @@
+import type { IClient } from "./client";
 import type { IService } from "./service"
+import type { IAdmin } from "./types";
 
 export interface IProcedure {
     _id: string,
@@ -34,3 +36,24 @@ export type ProcedureData =
         services: string[] | [],
         price: number
     };
+
+export interface ProcedureUpdateProps {
+    procedureId: string,
+    servicesData?: {
+        count: number,
+        data: IService[] | []
+    },
+    admin: Pick<IAdmin, '_id' | 'name'>,
+    client: Pick<IClient, '_id' | 'name'>
+}
+
+export interface ProcedureAddProps {
+    admin: string | '',
+    client: string | '',
+    procedureName: string | '',
+    additionalInfo: string | '',
+    day: string | '',
+    time: string | '',
+    price: number,
+    services: string[] | []
+}

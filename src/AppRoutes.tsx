@@ -13,6 +13,7 @@ import { AllClientsPage } from './pages/AllClientsPage'
 import { ClientInfoPage } from './pages/ClientInfoPage'
 import { AllProceduresPage } from './pages/AllProceduresPage'
 import { ProcedureInfoPage } from './pages/ProcedureInfoPage'
+import { ProcedureAddPage } from './pages/ProcedureAddPage'
 
 export const AppRoutes = () => {
     return (
@@ -53,6 +54,10 @@ export const AppRoutes = () => {
                 <Route 
                     path='/procedures/:procedureId' 
                     element={<PrivateRoute redirectTo='/login' component={<ProcedureInfoPage />} />} 
+                />
+                <Route 
+                    path='/procedures/add' 
+                    element={<PrivateRoute redirectTo='/login' component={<ProcedureAddPage />} />} 
                 />
 
                 {/* SERVICE */}

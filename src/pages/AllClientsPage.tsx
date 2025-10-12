@@ -1,5 +1,5 @@
 import { useGetAllClientsQuery } from "../api/clientApi"
-import { H2 } from "../components/headers/H2"
+import { H2 } from "../components/H2"
 import { Loader } from "../components/Loader";
 import { ClientsList } from "../components/clientComponents/ClientsList";
 import { useState } from "react";

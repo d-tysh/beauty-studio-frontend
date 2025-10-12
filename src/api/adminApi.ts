@@ -60,6 +60,7 @@ export const {
     useGetCurrentAdminQuery,
     useLazyGetCurrentAdminQuery,
     useGetAllAdminsQuery,
+    useLazyGetAllAdminsQuery,
     useGetAdminByIdQuery,
     useUpdateAdminByIdMutation,
     useRegisterMutation,

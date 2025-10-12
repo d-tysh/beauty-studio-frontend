@@ -16,7 +16,7 @@ export const AdminInfo = ({ adminInfo }: { adminInfo: IAdmin }) => {
 
     const deleteAdmin = () => id && handleDeleteAdmin(id);
 
-    const deleteBtnDisabled = currentAdmin?.id === id && currentAdmin?.status === 'pro';
+    const deleteBtnDisabled = currentAdmin?._id === id && currentAdmin?.status === 'pro';
 
     return (
         <FormWrapper>
@@ -25,18 +25,18 @@ export const AdminInfo = ({ adminInfo }: { adminInfo: IAdmin }) => {
                 enableReinitialize
                 onSubmit={handleUpdate}
             >
-                <Form className="flex flex-col gap-4 max-w-100 mx-auto mt-8">
-                    <AdminFormFields id={id} />
-                    <Button className="custom-form-button" isLoading={isUpdateLoading}>
-                        Update
-                    </Button>
+                <Form className="flex flex-col gap-4 max-w-100 mx-auto my-8">
                     {
                         currentAdmin?.status === 'pro' &&
-                        <Button className="custom-form-button" isLoading={isDeleteLoading} disabled={deleteBtnDisabled}
+                        <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading} disabled={deleteBtnDisabled}
                             type='button' onClick={deleteAdmin}>
                             ❌ Delete
                         </Button>
                     }
+                    <AdminFormFields id={id} />
+                    <Button className="custom-form-button" isLoading={isUpdateLoading}>
+                        Update
+                    </Button>
                 </Form>
             </Formik>
         </FormWrapper>
