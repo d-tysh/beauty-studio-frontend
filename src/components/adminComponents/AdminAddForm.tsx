@@ -5,13 +5,13 @@ import { FormWrapper } from "../form/FormWrapper";
 import { useAdminRegister } from "../../hooks/adminHooks/useAdminRegister";
 import type { IAdminRegister } from "../../types/types";
 
-export const AdminAddForm = ({ refetch }: { refetch: () => void }) => {
+export const AdminAddForm = ({ register, refetch }: { register: boolean, refetch?: () => void }) => {
     const { addAdmin, isLoading } = useAdminRegister();
 
     const handleSubmit = async (data: IAdminRegister, { resetForm }: FormikHelpers<IAdminRegister>) => {
         await addAdmin(data);
         resetForm();
-        refetch();
+        if (!register && refetch) refetch();
     }
 
     return (
@@ -20,10 +20,10 @@ export const AdminAddForm = ({ refetch }: { refetch: () => void }) => {
                 initialValues={{ name: '', login: '', email: '', password: '', status: 'basic' }}
                 onSubmit={handleSubmit}
             >
-                <Form className="flex flex-col gap-4 max-w-120 mx-auto my-4 text-left">
-                    <AdminFormFields addAdmin />
+                <Form className="flex flex-col gap-4 max-w-120 mx-auto my-20 text-left">
+                    <AdminFormFields addAdmin register />
                     <Button className="custom-form-button" isLoading={isLoading}>
-                        Add admin
+                        { register ? "Register" : "Add admin" }
                     </Button>
                 </Form>
             </Formik>

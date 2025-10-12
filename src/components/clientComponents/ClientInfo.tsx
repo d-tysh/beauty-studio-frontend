@@ -6,11 +6,14 @@ import { useClientDelete } from "../../hooks/clientHooks/useClientDelete";
 import { useClientUpdate } from "../../hooks/clientHooks/useClientUpdate";
 import { FormWrapper } from "../form/FormWrapper";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../redux/hooks";
+import { selectCurrentAdmin } from "../../redux/admin/selectors";
 
 export const ClientInfo = ({ clientInfo }: { clientInfo: IClient }) => {
     const { _id: id, name, phoneNumber, description, discount } = clientInfo;
     const { handleDeleteClient, isDeleteLoading } = useClientDelete(id);
     const { handleUpdateClient, isUpdateLoading } = useClientUpdate(id);
+    const currentAdmin = useAppSelector(selectCurrentAdmin);
     const navigate = useNavigate();
 
     const createProcedure = () => {
@@ -22,6 +25,8 @@ export const ClientInfo = ({ clientInfo }: { clientInfo: IClient }) => {
         });
     }
 
+    const btnDisabled = currentAdmin?.status !== 'pro';
+
     return (
         <FormWrapper>
             <Formik
@@ -31,7 +36,8 @@ export const ClientInfo = ({ clientInfo }: { clientInfo: IClient }) => {
             >
                 <Form className="flex flex-col gap-4 w-120 mx-auto my-8 text-left">
                     <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
-                        type='button' onClick={handleDeleteClient}>
+                        type='button' onClick={handleDeleteClient} disabled={btnDisabled}
+                    >
                         ❌ Delete
                     </Button>
                     <ClientFormFields />

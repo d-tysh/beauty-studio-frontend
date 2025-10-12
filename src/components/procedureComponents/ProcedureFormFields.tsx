@@ -33,6 +33,7 @@ export const ProcedureFormFields = ({ client, admin, addProcedure }: ProcedureFo
                 autoComplete="off" placeholder="Enter additional info..." />
             <FormField type="date" label="Day" name="day" required />
             <FormField type="time" label="Time" name="time" required />
+            <ServicesSelect />
 
             <label className="custom-form-label">
                 <span className="font-semibold w-1/3 ml-2 md:ml-0">Client</span>
@@ -75,11 +76,8 @@ export const ProcedureFormFields = ({ client, admin, addProcedure }: ProcedureFo
                                 >🔗</Link>
                             </div>
                     }
-
                 </label>
             }
-
-            <ServicesSelect />
         </>
     )
 }

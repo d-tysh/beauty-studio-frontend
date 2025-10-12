@@ -27,7 +27,7 @@ export const AsideAdminMenu = () => {
                         <AsideNav />
                     </div>
                     <div className="w-full mt-8">
-                        <Link to={`/admin/${admin._id}`} className="mb-4 flex gap-2 justify-center" title="Profile">
+                        <Link to={`/admin/${admin.id}`} className="mb-4 flex gap-2 justify-center" title="Profile">
                             👤 <span className="hidden lg:block">{admin.name}</span>
                         </Link>
                         <Button className="text-black w-full" onClick={handleLogout} title="Logout">

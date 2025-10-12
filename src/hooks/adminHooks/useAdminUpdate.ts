@@ -16,13 +16,13 @@ export const useAdminUpdate = (id: string) => {
             await updateAdminById({ id, data }).unwrap();
             toast.success('Data updated');
 
-            if (id === currentAdmin?._id) {
+            if (id === currentAdmin?.id) {
                 const updatedData = await getCurrentAdmin().unwrap();
                 dispatch(adminLogin(updatedData));
             }
         } catch (error) {
-            console.error(error);
             toast.error('Unable to update data')
+            throw error;
         }
     }
 
