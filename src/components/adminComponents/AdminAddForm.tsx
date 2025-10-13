@@ -20,7 +20,7 @@ export const AdminAddForm = ({ register, refetch }: { register?: boolean, refetc
                 initialValues={{ name: '', login: '', email: '', password: '', status: 'basic' }}
                 onSubmit={handleSubmit}
             >
-                <Form className="flex flex-col gap-4 max-w-120 mx-auto my-20 text-left">
+                <Form className={`${register && 'md:my-20'} custom-form my-4`}>
                     <AdminFormFields addAdmin register />
                     <Button className="custom-form-button" isLoading={isLoading}>
                         { register ? "Register" : "Add admin" }

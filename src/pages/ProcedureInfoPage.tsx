@@ -13,8 +13,8 @@ export const ProcedureInfoPage = () => {
     return (
         <>
             <H1>Procedure info</H1>
-            <div className="p-4 flex justify-center">
-                { (isLoading || isFetching) && <Loader />}
+            <div className="p-4 mx-auto">
+                { (isLoading || isFetching) && <div className="flex justify-center p-4"><Loader /></div>}
                 { !isLoading && !isFetching && data && <ProcedureInfo procedureInfo={data[0]} /> }
             </div>
         </>

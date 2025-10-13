@@ -28,7 +28,7 @@ export const ProcedureAddForm = () => {
                 }}
                 onSubmit={handleCreateProcedure}
             >
-                <Form className="flex flex-col gap-4 w-120 mx-auto my-8 text-left">
+                <Form className="custom-form my-4">
                     <ProcedureFormFields client={client} addProcedure />
                     <Button className="custom-form-button mt-2" isLoading={isCreateLoading} type="submit">
                         Add procedure

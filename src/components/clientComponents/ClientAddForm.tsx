@@ -25,7 +25,7 @@ export const ClientAddForm = ({ refetch }: { refetch: () => void }) => {
                 }}
                 onSubmit={handleSubmit}
             >
-                <Form className="flex flex-col gap-4 max-w-120 mx-auto my-4 text-left">
+                <Form className="custom-form my-4">
                     <ClientFormFields />
                     <Button className="custom-form-button" isLoading={isLoading}>
                         Add client

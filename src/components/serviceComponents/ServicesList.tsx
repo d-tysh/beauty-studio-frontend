@@ -3,7 +3,7 @@ import { ServicesListItem } from "./ServicesListItem"
 
 export const ServicesList = ({services}: { services: IService[]}) => {
     return (
-        <ul className="flex flex-col gap-4">
+        <ul className="flex flex-col gap-4 items-center">
             {services.map((service) => <ServicesListItem key={service._id} service={service} />)}
         </ul>
     )

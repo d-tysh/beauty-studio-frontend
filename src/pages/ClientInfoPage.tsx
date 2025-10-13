@@ -13,8 +13,8 @@ export const ClientInfoPage = () => {
     return (
         <>
             <H1>Client info</H1>
-            <div className="p-4 flex justify-center">
-                {(isLoading || isFetching) && <Loader />}
+            <div className="p-4 mx-auto">
+                {(isLoading || isFetching) && <div className="flex justify-center p-4"><Loader /></div>}
                 {isError && <p>Error! Something went wrong...</p>}
                 {!isLoading && !isFetching && data && <ClientInfo clientInfo={data.result} />}
             </div>

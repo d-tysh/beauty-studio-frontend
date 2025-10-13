@@ -25,7 +25,7 @@ export const AdminInfo = ({ adminInfo }: { adminInfo: IAdmin }) => {
                 enableReinitialize
                 onSubmit={handleUpdate}
             >
-                <Form className="flex flex-col gap-4 max-w-100 mx-auto my-8">
+                <Form className="custom-form my-4">
                     {
                         currentAdmin?.status === 'pro' &&
                         <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading} disabled={deleteBtnDisabled}

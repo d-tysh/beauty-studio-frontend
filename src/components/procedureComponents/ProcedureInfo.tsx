@@ -21,7 +21,7 @@ export const ProcedureInfo = ({ procedureInfo }: { procedureInfo: IProcedure }) 
     const { handleDeleteProcedure, isDeleteLoading } = useProcedureDelete(procedureId);
 
     return (
-        <div className="flex flex-col">
+        // <div className="flex flex-col">
             <FormWrapper>
                 <Formik
                     initialValues={{
@@ -33,7 +33,7 @@ export const ProcedureInfo = ({ procedureInfo }: { procedureInfo: IProcedure }) 
                     enableReinitialize
                     onSubmit={updateProcedure}
                 >
-                    <Form className="flex flex-col gap-4 w-120 mx-auto my-8 text-left">
+                    <Form className="custom-form my-4">
                         <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
                             type='button' onClick={handleDeleteProcedure}>
                             ❌ Delete
@@ -45,6 +45,6 @@ export const ProcedureInfo = ({ procedureInfo }: { procedureInfo: IProcedure }) 
                     </Form>
                 </Formik>
             </FormWrapper>
-        </div>
+        // </div>
     )
 }

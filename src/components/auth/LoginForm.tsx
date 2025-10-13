@@ -17,7 +17,7 @@ export const LoginForm = () => {
                 }}
                 onSubmit={handleLogin}
             >
-                <Form className="custom-form md:mt-20 text-left min-w-100">
+                <Form className="custom-form md:my-20">
                     <FormField
                         label="Login" name='login' required
                         autoComplete='off' placeholder='Enter login...'
