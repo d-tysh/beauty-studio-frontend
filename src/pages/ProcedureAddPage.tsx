@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom"
-import { H2 } from "../components/H2"
+import { H1 } from "../components/H1"
 import { ProcedureAddForm } from "../components/procedureComponents/ProcedureAddForm";
 
 export const ProcedureAddPage = () => {
@@ -7,7 +7,7 @@ export const ProcedureAddPage = () => {
 
     return (
         <>
-            <H2>Add procedure for "{state.clientName}"</H2>
+            <H1>Add procedure for "{state.clientName}"</H1>
             <ProcedureAddForm />
         </>
     )

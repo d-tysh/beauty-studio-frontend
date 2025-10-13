@@ -1,5 +1,5 @@
 import { useGetAllClientsQuery } from "../api/clientApi"
-import { H2 } from "../components/H2"
+import { H1 } from "../components/H1"
 import { Loader } from "../components/Loader";
 import { ClientsList } from "../components/clientComponents/ClientsList";
 import { useState } from "react";
@@ -20,7 +20,7 @@ export const AllClientsPage = () => {
 
     return (
         <>
-            <H2>Clients</H2>
+            <H1>Clients</H1>
             <Button className="mx-auto mt-4 w-40" onClick={handleAddFormState}>
                 {btnText}
             </Button>

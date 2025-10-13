@@ -4,7 +4,8 @@ import type { IAdmin, IAdminState } from "../../types/types";
 const initialState: IAdminState = {
     currentAdmin: null,
     isLoggedIn: false,
-    isLoading: false
+    isLoading: false,
+    isMobileMenuOpen: false
 }
 
 const adminSlice = createSlice({
@@ -24,13 +25,17 @@ const adminSlice = createSlice({
         setLoading: (state, action: PayloadAction<boolean>) => {
             state.isLoading = action.payload;
         },
+        setMobileMenuOpen: (state, action: PayloadAction<boolean>) => {
+            state.isMobileMenuOpen = action.payload;
+        },
     }
 })
 
 export const {
     adminLogin,
     setLoading,
-    adminLogout
+    adminLogout,
+    setMobileMenuOpen
 } = adminSlice.actions;
 
 export default adminSlice.reducer;

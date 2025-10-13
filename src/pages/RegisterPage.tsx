@@ -1,10 +1,10 @@
 import { AdminAddForm } from "../components/adminComponents/AdminAddForm"
-import { H2 } from "../components/H2"
+import { H1 } from "../components/H1"
 
 export const RegisterPage = () => {
     return (
         <div>
-            <H2>Register</H2>
+            <H1>Register</H1>
             <AdminAddForm register />
         </div>
     )

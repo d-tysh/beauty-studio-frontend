@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { H2 } from "../components/H2"
+import { H1 } from "../components/H1"
 import { useGetClientByIdQuery } from "../api/clientApi";
 import { Loader } from "../components/Loader";
 import { ClientInfo } from "../components/clientComponents/ClientInfo";
@@ -12,7 +12,7 @@ export const ClientInfoPage = () => {
 
     return (
         <>
-            <H2>Client info</H2>
+            <H1>Client info</H1>
             <div className="p-4 flex justify-center">
                 {(isLoading || isFetching) && <Loader />}
                 {isError && <p>Error! Something went wrong...</p>}

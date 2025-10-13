@@ -90,11 +90,11 @@ button:disabled {
 }
 
 .aside-nav:hover {
-  @apply bg-amber-200 text-amber-300 lg:p-0 lg:bg-inherit lg:pl-4;
+  @apply md:bg-amber-200 text-amber-300 lg:p-0 lg:bg-inherit lg:pl-4;
 }
 
 .aside-nav.active {
-  @apply bg-amber-100 text-amber-200 lg:p-0 lg:bg-inherit lg:pl-4;
+  @apply md:bg-amber-100 text-amber-200 lg:p-0 lg:bg-inherit lg:pl-4;
 }
 
 aside > div::-webkit-scrollbar {
