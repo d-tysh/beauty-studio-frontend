@@ -15,6 +15,7 @@ export interface IAdminState {
     currentAdmin: IAdmin | null,
     isLoggedIn: boolean,
     isLoading: boolean,
+    isMobileMenuOpen: boolean
 }
 
 export interface IAdminLogin {

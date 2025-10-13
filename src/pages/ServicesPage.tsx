@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useGetServicesQuery } from "../api/serviceApi";
 import { Button } from "../components/Button";
-import { H2 } from "../components/H2";
+import { H1 } from "../components/H1";
 import { Loader } from "../components/Loader";
 import { ServicesList } from "../components/serviceComponents/ServicesList";
 import { ServiceAddForm } from "../components/serviceComponents/ServiceAddForm";
@@ -20,7 +20,7 @@ export const ServicesPage = () => {
 
     return (
         <>
-            <H2>Services</H2>
+            <H1>Services</H1>
             <Button className="mx-auto mt-4 w-40" onClick={handleAddFormState}>
                 {btnText}
             </Button>
