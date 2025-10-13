@@ -30,20 +30,20 @@ export const AllAdminsPage = () => {
     const btnText = isAddFormOpen ? '🗙 Cancel' : '➕ Add admin';
 
     return (
-        <div>
+        <>
             <H1>Admins</H1>
             <Button className="mx-auto mt-4 w-40" onClick={handleAddFormState}>
                 {btnText}
             </Button>
             {isAddFormOpen && <AdminAddForm refetch={refetch} />}
-            <div className="p-4 flex justify-center flex-col items-center">
-                {(isLoading || isFetching) && <div className="mx-auto"><Loader /></div>}
+            <div className="p-4 mx-auto">
+                {(isLoading || isFetching) && <div className="flex justify-center"><Loader /></div>}
                 {error && !isLoading && <p>Error! Something went wrong...</p>}
                 {
                     !isLoading && !isFetching && currentAdmin?.status === 'pro' && data &&
                     <AdminsList admins={data.result} />
                 }
             </div>
-        </div>
+        </>
     )
 }

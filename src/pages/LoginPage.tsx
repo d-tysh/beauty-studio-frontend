@@ -5,7 +5,7 @@ export const LoginPage = () => {
     return (
         <>
             <H1>Login</H1>
-            <div className="p-4 flex justify-center">
+            <div className="p-4 mx-auto">
                 <LoginForm />
             </div>
         </>

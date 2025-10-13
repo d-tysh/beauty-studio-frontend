@@ -25,8 +25,8 @@ export const ServicesPage = () => {
                 {btnText}
             </Button>
             { isAddFormOpen && <ServiceAddForm refetch={refetch} /> }
-            <div className="p-4 flex justify-center">
-                {(isLoading || isFetching) && <Loader />}
+            <div className="p-4 mx-auto">
+                {(isLoading || isFetching) && <div className="flex justify-center"><Loader /></div>}
                 {error && <p>Something went wrong...</p>}
                 {
                     !isLoading && !isFetching && !error && services && <ServicesList services={services.data} />

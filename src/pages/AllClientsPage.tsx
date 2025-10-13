@@ -25,8 +25,8 @@ export const AllClientsPage = () => {
                 {btnText}
             </Button>
             {isAddFormOpen && <ClientAddForm refetch={refetch} />}
-            <div className="p-4 flex justify-center">
-                {(isLoading || isFetching) && <Loader />}
+            <div className="p-4 mx-auto">
+                {(isLoading || isFetching) && <div className="flex justify-center"><Loader /></div>}
                 {isError && <p>Error! Something went wrong...</p>}
                 {
                     !isLoading && !isFetching && data && <ClientsList clients={data.clients} />

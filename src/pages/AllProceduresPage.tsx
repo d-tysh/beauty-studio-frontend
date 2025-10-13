@@ -11,8 +11,8 @@ export const AllProceduresPage = () => {
     return (
         <>
             <H1>Procedures</H1>
-            <div className="p-4 flex justify-center">
-                { (isLoading || isFetching) && <Loader /> }
+            <div className="p-4 mx-auto">
+                { (isLoading || isFetching) && <div className="flex justify-center"><Loader /></div> }
                 { !isLoading && !isFetching && data.result && <ProceduresList procedures={data.result} /> }
             </div>
         </>
