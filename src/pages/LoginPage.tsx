@@ -1,7 +1,7 @@
 import { LoginForm } from "../components/auth/LoginForm"
 import { H1 } from "../components/H1"
 
-export const LoginPage = () => {
+const LoginPage = () => {
     return (
         <>
             <H1>Login</H1>
@@ -11,3 +11,5 @@ export const LoginPage = () => {
         </>
     )
 }
+
+export default LoginPage;

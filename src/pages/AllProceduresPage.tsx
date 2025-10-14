@@ -1,10 +1,10 @@
 import { H1 } from "../components/H1"
-import { useGetAllProceduresQuery } from "../api/procedureApi";
+import { useGetAllProceduresQuery } from "../redux/api/procedureApi";
 import { Loader } from "../components/Loader";
 import { ProceduresList } from "../components/procedureComponents/ProceduresList";
 
-export const AllProceduresPage = () => {
-    const { data, isLoading, isFetching } = useGetAllProceduresQuery(undefined, {
+const AllProceduresPage = () => {
+    const { data, isLoading, isFetching, isError } = useGetAllProceduresQuery(undefined, {
         refetchOnMountOrArgChange: true
     });
 
@@ -13,8 +13,11 @@ export const AllProceduresPage = () => {
             <H1>Procedures</H1>
             <div className="p-4 mx-auto">
                 { (isLoading || isFetching) && <div className="flex justify-center"><Loader /></div> }
+                { isError && !isLoading && <p>Error! Something went wrong...</p> }
                 { !isLoading && !isFetching && data.result && <ProceduresList procedures={data.result} /> }
             </div>
         </>
     )
 }
+
+export default AllProceduresPage;

@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { useUpdateProcedureByIdMutation } from "../../api/procedureApi";
+import { useUpdateProcedureByIdMutation } from "../../redux/api/procedureApi";
 import type { ProcedureData, ProcedureUpdateProps } from "../../types/procedures";
 
 export const useProcedureUpdate = ({procedureId, servicesData, admin, client}: ProcedureUpdateProps) => {

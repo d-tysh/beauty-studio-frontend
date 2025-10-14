@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { selectIsLoggedIn } from "../redux/admin/selectors"
 import { useAppSelector } from "../redux/hooks"
-import { useGetCurrentAdminQuery } from "../api/adminApi";
+import { useGetCurrentAdminQuery } from "../redux/api/adminApi";
 
 interface PrivateRouteProps {
     component: React.ReactElement,
@@ -15,3 +15,5 @@ export const PrivateRoute = ({ component: Component, redirectTo }: PrivateRouteP
 
     return shouldRedirect ? <Navigate to={redirectTo} /> : Component;
 }
+
+export default PrivateRoute;

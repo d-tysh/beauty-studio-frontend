@@ -1,4 +1,4 @@
-import type { IAdmin, IAdminLogin, IAdminRegister } from "../types/types";
+import type { IAdmin, IAdminLogin, IAdminRegister } from "../../types/types";
 import { api } from "./api";
 
 interface ILogoutResponse {

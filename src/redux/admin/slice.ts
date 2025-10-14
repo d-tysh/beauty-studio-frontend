@@ -12,7 +12,7 @@ const adminSlice = createSlice({
     name: 'admin',
     initialState,
     reducers: {
-        adminLogin: (state, action: PayloadAction<IAdmin>) => {
+        setCurrentAdmin: (state, action: PayloadAction<IAdmin>) => {
             state.currentAdmin = action.payload;
             state.isLoggedIn = true;
             state.isLoading = false;
@@ -32,7 +32,7 @@ const adminSlice = createSlice({
 })
 
 export const {
-    adminLogin,
+    setCurrentAdmin,
     setLoading,
     adminLogout,
     setMobileMenuOpen

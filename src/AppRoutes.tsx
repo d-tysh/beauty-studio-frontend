@@ -1,19 +1,22 @@
 import { Route, Routes } from 'react-router-dom'
+import { lazy } from 'react';
 import { Layout } from './components/Layout'
 import { HomePage } from './pages/HomePage'
-import { LoginPage } from './pages/LoginPage'
-import { RegisterPage } from './pages/RegisterPage'
-import { AdminInfoPage } from './pages/AdminInfoPage'
-import { RestrictedRoute } from './components/RestrictedRoute'
-import { PrivateRoute } from './components/PrivateRoute'
-import { AllAdminsPage } from './pages/AllAdminsPage'
-import { ServicesPage } from './pages/ServicesPage'
-import { ServiceInfoPage } from './pages/ServiceInfoPage'
-import { AllClientsPage } from './pages/AllClientsPage'
-import { ClientInfoPage } from './pages/ClientInfoPage'
-import { AllProceduresPage } from './pages/AllProceduresPage'
-import { ProcedureInfoPage } from './pages/ProcedureInfoPage'
-import { ProcedureAddPage } from './pages/ProcedureAddPage'
+
+const LoginPage = lazy(() => import('./pages/LoginPage'))
+const RegisterPage = lazy(() => import('./pages/RegisterPage'))
+const AdminInfoPage = lazy(() => import('./pages/AdminInfoPage'))
+const RestrictedRoute = lazy(() => import('./components/RestrictedRoute'))
+const PrivateRoute = lazy(() => import('./components/PrivateRoute'))
+const AllAdminsPage = lazy(() => import('./pages/AllAdminsPage'))
+const ServicesPage = lazy(() => import('./pages/ServicesPage'))
+const ServiceInfoPage = lazy(() => import('./pages/ServiceInfoPage'))
+const AllClientsPage = lazy(() => import('./pages/AllClientsPage'))
+const ClientInfoPage = lazy(() => import('./pages/ClientInfoPage'))
+const AllProceduresPage = lazy(() => import('./pages/AllProceduresPage'))
+const ProcedureInfoPage = lazy(() => import('./pages/ProcedureInfoPage'))
+const ProcedureAddPage = lazy(() => import('./pages/ProcedureAddPage'))
+const PageNotFound = lazy(() => import('./pages/PageNotFound'));
 
 export const AppRoutes = () => {
     return (
@@ -69,6 +72,8 @@ export const AppRoutes = () => {
                     path='/services/:serviceId' 
                     element={<PrivateRoute redirectTo='/login' component={<ServiceInfoPage />} />} 
                 />
+
+                <Route  path='*' element={<PageNotFound />} />
             </Route>
         </Routes>
     )

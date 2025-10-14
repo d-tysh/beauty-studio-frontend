@@ -31,7 +31,7 @@ export const ServiceAddForm = ({ refetch }: { refetch: () => void }) => {
                 <Form className="custom-form my-4">
                     <ServiceFormFields />
                     <Button className="custom-form-button" isLoading={isLoading}>
-                        Add
+                        Add service
                     </Button>
                 </Form>
             </Formik>

@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
-import { useCreateProcedureMutation } from "../../api/procedureApi";
-import { useGetServicesQuery } from "../../api/serviceApi";
+import { useCreateProcedureMutation } from "../../redux/api/procedureApi";
+import { useGetServicesQuery } from "../../redux/api/serviceApi";
 import { selectCurrentAdmin } from "../../redux/admin/selectors";
 import { useAppSelector } from "../../redux/hooks";
 import type { ProcedureAddProps } from "../../types/procedures";

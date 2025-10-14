@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom"
 import { H1 } from "../components/H1";
-import { useGetAdminByIdQuery } from "../api/adminApi";
+import { useGetAdminByIdQuery } from "../redux/api/adminApi";
 import { Loader } from "../components/Loader";
 import { AdminInfo } from "../components/adminComponents/AdminInfo";
 
-export const AdminInfoPage = () => {
+const AdminInfoPage = () => {
     const params = useParams<{ id: string }>();
     const { data, isLoading, error, isFetching } = useGetAdminByIdQuery(params.id ?? "", {
         refetchOnMountOrArgChange: true,
@@ -21,3 +21,5 @@ export const AdminInfoPage = () => {
         </div>
     )
 }
+
+export default AdminInfoPage;

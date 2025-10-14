@@ -1,6 +1,6 @@
-import { useLazyGetCurrentAdminQuery, useUpdateAdminByIdMutation } from "../../api/adminApi";
+import { useLazyGetCurrentAdminQuery, useUpdateAdminByIdMutation } from "../../redux/api/adminApi";
 import { toast } from "react-toastify";
-import { adminLogin } from "../../redux/admin/slice";
+import { setCurrentAdmin } from "../../redux/admin/slice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { selectCurrentAdmin } from "../../redux/admin/selectors";
 import type { IAdminUpdate } from "../../types/types";
@@ -18,7 +18,7 @@ export const useAdminUpdate = (id: string) => {
 
             if (id === currentAdmin?.id) {
                 const updatedData = await getCurrentAdmin().unwrap();
-                dispatch(adminLogin(updatedData));
+                dispatch(setCurrentAdmin(updatedData));
             }
         } catch (error) {
             toast.error('Unable to update data')

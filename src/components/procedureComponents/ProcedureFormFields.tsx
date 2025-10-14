@@ -5,7 +5,7 @@ import { useAppSelector } from "../../redux/hooks";
 import { selectCurrentAdmin } from "../../redux/admin/selectors";
 import type { IClient } from "../../types/client";
 import type { IAdmin } from "../../types/types";
-import { useLazyGetAllAdminsQuery } from "../../api/adminApi";
+import { useLazyGetAllAdminsQuery } from "../../redux/api/adminApi";
 import { useEffect } from "react";
 import { ServicesSelect } from "./ServicesSelect";
 

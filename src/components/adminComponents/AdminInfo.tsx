@@ -30,7 +30,7 @@ export const AdminInfo = ({ adminInfo }: { adminInfo: IAdmin }) => {
                         currentAdmin?.status === 'pro' &&
                         <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading} disabled={deleteBtnDisabled}
                             type='button' onClick={deleteAdmin}>
-                            ❌ Delete
+                            ✖ Delete
                         </Button>
                     }
                     <AdminFormFields id={id} />

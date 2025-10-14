@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useDeleteClientMutation } from "../../api/clientApi";
+import { useDeleteClientMutation } from "../../redux/api/clientApi";
 
 export const useClientDelete = (id: string) => {
     const [deleteClient, { isLoading: isDeleteLoading }] = useDeleteClientMutation();

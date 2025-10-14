@@ -1,20 +1,23 @@
 import './App.css'
-import { useGetCurrentAdminQuery } from './api/adminApi'
+import { useGetCurrentAdminQuery } from './redux/api/adminApi'
 import { useEffect } from 'react'
 import { useAppDispatch } from './redux/hooks'
-import { adminLogin } from './redux/admin/slice'
+import { setCurrentAdmin, setLoading } from './redux/admin/slice'
 import { ToastContainer } from 'react-toastify'
 import { AppRoutes } from './AppRoutes'
 
 function App() {
-    const { data, isSuccess } = useGetCurrentAdminQuery();
+    const { data, isSuccess, isError } = useGetCurrentAdminQuery();
     const dispatch = useAppDispatch();
 
     useEffect(() => {
+        dispatch(setLoading(true))
         if (isSuccess && data) {
-            dispatch(adminLogin(data));
+            dispatch(setCurrentAdmin(data));
+        } else if (isError) {
+            dispatch(setLoading(false));
         }
-    }, [data, dispatch, isSuccess])
+    }, [data, dispatch, isSuccess, isError])
 
     return (
         <>

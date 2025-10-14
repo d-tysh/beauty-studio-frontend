@@ -1,6 +1,6 @@
-import { useLoginMutation } from "../../api/adminApi"
+import { useLoginMutation } from "../../redux/api/adminApi"
 import { useAppDispatch } from "../../redux/hooks";
-import { adminLogin, setLoading } from "../../redux/admin/slice";
+import { setCurrentAdmin, setLoading } from "../../redux/admin/slice";
 import type { IAdminLogin } from "../../types/types";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -22,7 +22,7 @@ export const useAdminLogin = () => {
         try {
             dispatch(setLoading(true));
             const result = await login(data).unwrap();
-            dispatch(adminLogin(result.data));
+            dispatch(setCurrentAdmin(result.data));
             toast.success("Hello!");
             navigate('/');
         } catch (error) {

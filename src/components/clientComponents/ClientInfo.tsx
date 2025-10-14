@@ -38,7 +38,7 @@ export const ClientInfo = ({ clientInfo }: { clientInfo: IClient }) => {
                     <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
                         type='button' onClick={handleDeleteClient} disabled={btnDisabled}
                     >
-                        ❌ Delete
+                        ✖ Delete
                     </Button>
                     <ClientFormFields />
                     <Button className="custom-form-button mt-2" isLoading={isUpdateLoading}>
@@ -46,7 +46,7 @@ export const ClientInfo = ({ clientInfo }: { clientInfo: IClient }) => {
                     </Button>
                     <Button className="custom-form-button" isLoading={isDeleteLoading}
                         type='button' onClick={createProcedure}>
-                        ➕ Create procedure
+                        ✚ Create procedure
                     </Button>
                 </Form>
             </Formik>
