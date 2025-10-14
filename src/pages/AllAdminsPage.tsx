@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useGetAllAdminsQuery } from "../api/adminApi"
+import { useGetAllAdminsQuery } from "../redux/api/adminApi"
 import { Loader } from "../components/Loader";
 import { selectCurrentAdmin } from "../redux/admin/selectors";
 import { useAppSelector } from "../redux/hooks";

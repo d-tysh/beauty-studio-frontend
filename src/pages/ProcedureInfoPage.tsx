@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { H1 } from "../components/H1"
-import { useGetProcedureByIdQuery } from "../api/procedureApi";
+import { useGetProcedureByIdQuery } from "../redux/api/procedureApi";
 import { Loader } from "../components/Loader";
 import { ProcedureInfo } from "../components/procedureComponents/ProcedureInfo";
 

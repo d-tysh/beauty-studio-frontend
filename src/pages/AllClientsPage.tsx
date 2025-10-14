@@ -1,4 +1,4 @@
-import { useGetAllClientsQuery } from "../api/clientApi"
+import { useGetAllClientsQuery } from "../redux/api/clientApi"
 import { H1 } from "../components/H1"
 import { Loader } from "../components/Loader";
 import { ClientsList } from "../components/clientComponents/ClientsList";

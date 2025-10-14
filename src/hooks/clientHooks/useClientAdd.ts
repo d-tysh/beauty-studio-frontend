@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import type { IClientRegister } from "../../types/client";
-import { useAddClientMutation } from "../../api/clientApi";
+import { useAddClientMutation } from "../../redux/api/clientApi";
 
 export const useClientAdd = () => {
     const [addClient, { isLoading }] = useAddClientMutation();

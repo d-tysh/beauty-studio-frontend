@@ -1,5 +1,5 @@
 import type { IService } from "../../types/service";
-import { useAddServiceMutation } from "../../api/serviceApi";
+import { useAddServiceMutation } from "../../redux/api/serviceApi";
 import { toast } from "react-toastify";
 
 export const useServiceAdd = () => {

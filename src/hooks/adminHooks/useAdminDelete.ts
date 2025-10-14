@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useDeleteAdminMutation } from "../../api/adminApi";
+import { useDeleteAdminMutation } from "../../redux/api/adminApi";
 
 export const useAdminDelete = () => {
     const [deleteAdmin, { isLoading }] = useDeleteAdminMutation();

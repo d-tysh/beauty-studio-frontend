@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { H1 } from "../components/H1";
-import { useGetServiceByIdQuery } from "../api/serviceApi";
+import { useGetServiceByIdQuery } from "../redux/api/serviceApi";
 import { Loader } from "../components/Loader";
 import { ServiceInfo } from "../components/serviceComponents/ServiceInfo";
 

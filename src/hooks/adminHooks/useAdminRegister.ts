@@ -1,5 +1,5 @@
 import type { IAdminRegister } from "../../types/types";
-import { useRegisterMutation } from "../../api/adminApi";
+import { useRegisterMutation } from "../../redux/api/adminApi";
 import { toast } from "react-toastify";
 
 export const useAdminRegister = () => {

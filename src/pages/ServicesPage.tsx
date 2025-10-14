@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useGetServicesQuery } from "../api/serviceApi";
+import { useGetServicesQuery } from "../redux/api/serviceApi";
 import { Button } from "../components/Button";
 import { H1 } from "../components/H1";
 import { Loader } from "../components/Loader";

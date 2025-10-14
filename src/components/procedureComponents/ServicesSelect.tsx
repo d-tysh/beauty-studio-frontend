@@ -1,5 +1,5 @@
 import { Field } from "formik";
-import { useGetServicesQuery } from "../../api/serviceApi";
+import { useGetServicesQuery } from "../../redux/api/serviceApi";
 
 export const ServicesSelect = () => {
     const { data: servicesData, isError: isServicesError } = useGetServicesQuery(undefined, {

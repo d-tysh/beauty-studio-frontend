@@ -4,7 +4,7 @@ import { Form, Formik } from "formik";
 import { Button } from "../Button";
 import { useHandleDate } from "../../hooks/useHandleDate";
 import { ProcedureFormFields } from "./ProcedureFormFields";
-import { useGetServicesQuery } from "../../api/serviceApi";
+import { useGetServicesQuery } from "../../redux/api/serviceApi";
 import { useProcedureUpdate } from "../../hooks/procedureHooks/useProcedureUpdate";
 import { useProcedureDelete } from "../../hooks/procedureHooks/useProcedureDelete";
 

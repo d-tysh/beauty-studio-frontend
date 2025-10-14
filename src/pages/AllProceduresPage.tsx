@@ -1,5 +1,5 @@
 import { H1 } from "../components/H1"
-import { useGetAllProceduresQuery } from "../api/procedureApi";
+import { useGetAllProceduresQuery } from "../redux/api/procedureApi";
 import { Loader } from "../components/Loader";
 import { ProceduresList } from "../components/procedureComponents/ProceduresList";
 

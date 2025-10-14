@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import type { IService } from "../../types/service";
-import { useUpdateServiceByIdMutation } from "../../api/serviceApi";
+import { useUpdateServiceByIdMutation } from "../../redux/api/serviceApi";
 
 export const useServiceUpdate = (serviceId: string) => {
     const [updateServiceById, { isLoading: isUpdateLoading }] = useUpdateServiceByIdMutation();

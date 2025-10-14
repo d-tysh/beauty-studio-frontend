@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useDeleteProcedureMutation } from "../../api/procedureApi";
+import { useDeleteProcedureMutation } from "../../redux/api/procedureApi";
 
 export const useProcedureDelete = (procedureId: string) => {
     const [deleteProcedure, { isLoading: isDeleteLoading }] = useDeleteProcedureMutation();

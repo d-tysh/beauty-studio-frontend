@@ -1,8 +1,8 @@
 import './App.css'
-import { useGetCurrentAdminQuery } from './api/adminApi'
+import { useGetCurrentAdminQuery } from './redux/api/adminApi'
 import { useEffect } from 'react'
 import { useAppDispatch } from './redux/hooks'
-import { adminLogin } from './redux/admin/slice'
+import { setCurrentAdmin } from './redux/admin/slice'
 import { ToastContainer } from 'react-toastify'
 import { AppRoutes } from './AppRoutes'
 
@@ -12,7 +12,7 @@ function App() {
 
     useEffect(() => {
         if (isSuccess && data) {
-            dispatch(adminLogin(data));
+            dispatch(setCurrentAdmin(data));
         }
     }, [data, dispatch, isSuccess])
 

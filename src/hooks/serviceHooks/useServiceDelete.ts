@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useDeleteServiceMutation } from "../../api/serviceApi";
+import { useDeleteServiceMutation } from "../../redux/api/serviceApi";
 import { toast } from "react-toastify";
 
 export const useServiceDelete = (serviceId: string) => {

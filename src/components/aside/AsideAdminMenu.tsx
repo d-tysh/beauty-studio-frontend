@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useLogoutMutation } from "../../api/adminApi";
+import { useLogoutMutation } from "../../redux/api/adminApi";
 import { selectCurrentAdmin, selectIsLoggedIn } from "../../redux/admin/selectors";
 import { adminLogout } from "../../redux/admin/slice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";

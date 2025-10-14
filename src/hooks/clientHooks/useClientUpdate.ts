@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import type { IClient } from "../../types/client";
-import { useUpdateClientByIdMutation } from "../../api/clientApi";
+import { useUpdateClientByIdMutation } from "../../redux/api/clientApi";
 
 export const useClientUpdate = (id: string) => {
     const [updateClient, { isLoading: isUpdateLoading }] = useUpdateClientByIdMutation();
