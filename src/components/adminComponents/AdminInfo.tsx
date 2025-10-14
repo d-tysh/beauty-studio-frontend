@@ -1,5 +1,5 @@
 import { Form, Formik } from "formik";
-import type { IAdmin } from "../../types/types"
+import type { IAdmin } from "../../types/admin"
 import { Button } from "../Button";
 import { useAdminUpdate } from "../../hooks/adminHooks/useAdminUpdate";
 import { AdminFormFields } from "./AdminFormFields";
@@ -7,6 +7,7 @@ import { useAppSelector } from "../../redux/hooks";
 import { selectCurrentAdmin } from "../../redux/admin/selectors";
 import { useAdminDelete } from "../../hooks/adminHooks/useAdminDelete";
 import { FormWrapper } from "../form/FormWrapper";
+import { adminUpdateSchema } from "../validation";
 
 export const AdminInfo = ({ adminInfo }: { adminInfo: IAdmin }) => {
     const currentAdmin = useAppSelector(selectCurrentAdmin);
@@ -22,22 +23,26 @@ export const AdminInfo = ({ adminInfo }: { adminInfo: IAdmin }) => {
         <FormWrapper>
             <Formik
                 initialValues={{ name, login, status, email: email || "-" }}
+                validationSchema={adminUpdateSchema}
                 enableReinitialize
                 onSubmit={handleUpdate}
             >
-                <Form className="custom-form my-4">
-                    {
-                        currentAdmin?.status === 'pro' &&
-                        <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading} disabled={deleteBtnDisabled}
-                            type='button' onClick={deleteAdmin}>
-                            ✖ Delete
+                {({ errors, touched }) => (
+                    <Form className="custom-form my-4">
+                        {
+                            currentAdmin?.status === 'pro' &&
+                            <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading} 
+                                type='button' onClick={deleteAdmin} disabled={deleteBtnDisabled}
+                            >
+                                ✖ Delete
+                            </Button>
+                        }
+                        <AdminFormFields id={id} errorsInfo={{ errors, touched }} />
+                        <Button className="custom-form-button" isLoading={isUpdateLoading}>
+                            Update
                         </Button>
-                    }
-                    <AdminFormFields id={id} />
-                    <Button className="custom-form-button" isLoading={isUpdateLoading}>
-                        Update
-                    </Button>
-                </Form>
+                    </Form>
+                )}
             </Formik>
         </FormWrapper>
     )

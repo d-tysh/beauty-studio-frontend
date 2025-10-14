@@ -3,7 +3,8 @@ import { Button } from "../Button"
 import { AdminFormFields } from "./AdminFormFields"
 import { FormWrapper } from "../form/FormWrapper";
 import { useAdminRegister } from "../../hooks/adminHooks/useAdminRegister";
-import type { IAdminRegister } from "../../types/types";
+import type { IAdminRegister } from "../../types/admin";
+import { adminRegisterSchema } from "../validation";
 
 export const AdminAddForm = ({ register, refetch }: { register?: boolean, refetch?: () => void }) => {
     const { addAdmin, isLoading } = useAdminRegister();
@@ -18,14 +19,17 @@ export const AdminAddForm = ({ register, refetch }: { register?: boolean, refetc
         <FormWrapper>
             <Formik
                 initialValues={{ name: '', login: '', email: '', password: '', status: 'basic' }}
+                validationSchema={adminRegisterSchema}
                 onSubmit={handleSubmit}
             >
-                <Form className={`${register && 'md:my-20'} custom-form my-4`}>
-                    <AdminFormFields addAdmin register />
-                    <Button className="custom-form-button" isLoading={isLoading}>
-                        { register ? "Register" : "Add admin" }
-                    </Button>
-                </Form>
+                {({ errors, touched }) => (
+                    <Form className={`${register && 'md:my-20'} custom-form my-4`}>
+                        <AdminFormFields addAdmin register errorsInfo={{ errors, touched }} />
+                        <Button className="custom-form-button" isLoading={isLoading}>
+                            {register ? "Register" : "Add admin"}
+                        </Button>
+                    </Form>
+                )}
             </Formik>
         </FormWrapper>
     )

@@ -21,30 +21,28 @@ export const ProcedureInfo = ({ procedureInfo }: { procedureInfo: IProcedure }) 
     const { handleDeleteProcedure, isDeleteLoading } = useProcedureDelete(procedureId);
 
     return (
-        // <div className="flex flex-col">
-            <FormWrapper>
-                <Formik
-                    initialValues={{
-                        procedureName, additionalInfo, day, time, price,
-                        admin: admin.name,
-                        client: client.name,
-                        services: selectedServices
-                    }}
-                    enableReinitialize
-                    onSubmit={updateProcedure}
-                >
-                    <Form className="custom-form my-4">
-                        <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
-                            type='button' onClick={handleDeleteProcedure}>
-                            ✖ Delete
-                        </Button>
-                        <ProcedureFormFields client={client} admin={admin} />
-                        <Button className="custom-form-button mt-2" isLoading={isUpdateLoading} type="submit">
-                            💾 Update
-                        </Button>
-                    </Form>
-                </Formik>
-            </FormWrapper>
-        // </div>
+        <FormWrapper>
+            <Formik
+                initialValues={{
+                    procedureName, additionalInfo, day, time, price,
+                    admin: admin.name,
+                    client: client.name,
+                    services: selectedServices
+                }}
+                enableReinitialize
+                onSubmit={updateProcedure}
+            >
+                <Form className="custom-form my-4">
+                    <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
+                        type='button' onClick={handleDeleteProcedure}>
+                        ✖ Delete
+                    </Button>
+                    <ProcedureFormFields client={client} admin={admin} />
+                    <Button className="custom-form-button mt-2" isLoading={isUpdateLoading} type="submit">
+                        💾 Update
+                    </Button>
+                </Form>
+            </Formik>
+        </FormWrapper>
     )
 }

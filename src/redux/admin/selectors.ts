@@ -1,4 +1,4 @@
-import type { IState } from "../../types/types";
+import type { IState } from "../../types/admin";
 
 export const selectIsLoggedIn = (state: IState) => state.admin.isLoggedIn;
 export const selectCurrentAdmin = (state: IState) => state.admin.currentAdmin;

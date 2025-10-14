@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { IAdmin, IAdminState } from "../../types/types";
+import type { IAdmin, IAdminState } from "../../types/admin";
 
 const initialState: IAdminState = {
     currentAdmin: null,

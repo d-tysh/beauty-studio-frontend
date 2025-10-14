@@ -8,6 +8,7 @@ import { FormWrapper } from "../form/FormWrapper";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
 import { selectCurrentAdmin } from "../../redux/admin/selectors";
+import { clientUpdateSchema } from "../validation";
 
 export const ClientInfo = ({ clientInfo }: { clientInfo: IClient }) => {
     const { _id: id, name, phoneNumber, description, discount } = clientInfo;
@@ -19,7 +20,7 @@ export const ClientInfo = ({ clientInfo }: { clientInfo: IClient }) => {
     const createProcedure = () => {
         navigate('/procedures/add', {
             state: {
-                clientId: id, 
+                clientId: id,
                 clientName: name
             }
         });
@@ -31,24 +32,27 @@ export const ClientInfo = ({ clientInfo }: { clientInfo: IClient }) => {
         <FormWrapper>
             <Formik
                 initialValues={{ name, phoneNumber, description, discount }}
+                validationSchema={clientUpdateSchema}
                 enableReinitialize
                 onSubmit={handleUpdateClient}
             >
-                <Form className="custom-form my-4">
-                    <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
-                        type='button' onClick={handleDeleteClient} disabled={btnDisabled}
-                    >
-                        ✖ Delete
-                    </Button>
-                    <ClientFormFields />
-                    <Button className="custom-form-button mt-2" isLoading={isUpdateLoading}>
-                        💾 Update client data
-                    </Button>
-                    <Button className="custom-form-button" isLoading={isDeleteLoading}
-                        type='button' onClick={createProcedure}>
-                        ✚ Create procedure
-                    </Button>
-                </Form>
+                {({ errors, touched }) => (
+                    <Form className="custom-form my-4">
+                        <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
+                            type='button' onClick={handleDeleteClient} disabled={btnDisabled}
+                        >
+                            ✖ Delete
+                        </Button>
+                        <ClientFormFields errorsInfo={{ errors, touched }} />
+                        <Button className="custom-form-button mt-2" isLoading={isUpdateLoading}>
+                            💾 Update client data
+                        </Button>
+                        <Button className="custom-form-button" isLoading={isDeleteLoading}
+                            type='button' onClick={createProcedure}>
+                            ✚ Create procedure
+                        </Button>
+                    </Form>
+                )}
             </Formik>
         </FormWrapper>
     )

@@ -51,7 +51,7 @@ button:disabled {
 }
 
 .custom-form {
-  @apply flex flex-col gap-4 justify-center p-4 md:p-0 w-full md:w-120 mx-auto text-left;
+  @apply flex flex-col gap-6 justify-center p-4 md:p-0 w-full md:w-120 mx-auto text-left;
 }
 
 .custom-form-field {
