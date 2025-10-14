@@ -6,18 +6,21 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { Button } from "../Button";
 import { Loader } from "../Loader";
 import { AsideNav } from "./AsideNav";
+import { useCloseMobileMenu } from "../../hooks/useCloseMobileMenu";
 
 export const AsideAdminMenu = () => {
     const admin = useAppSelector(selectCurrentAdmin);
     const isLoggedIn = useAppSelector(selectIsLoggedIn);
     const [logout, { isLoading: isLogoutLoading }] = useLogoutMutation();
+    const closeMobileMenu = useCloseMobileMenu();
     const dispatch = useAppDispatch();
-
+    
     const handleLogout = async () => {
         await logout();
         dispatch(adminLogout());
+        closeMobileMenu();
     }
-    
+
     return (
         <>
             {
@@ -27,11 +30,13 @@ export const AsideAdminMenu = () => {
                         <AsideNav />
                     </div>
                     <div className="w-full mt-8">
-                        <Link to={`/admin/${admin.id}`} className="mb-4 flex gap-2 justify-center" title="Profile">
+                        <Link to={`/admin/${admin.id}`} className="mb-4 flex gap-2 justify-center" 
+                            title="Profile" onClick={closeMobileMenu}
+                        >
                             👤 <span className="md:hidden lg:block">{admin.name}</span>
                         </Link>
                         <Button className="text-black w-full" onClick={handleLogout} title="Logout">
-                            {isLogoutLoading ? <Loader /> : <><span className="hidden lg:block">Logout&nbsp;</span>⇒</>}
+                            {isLogoutLoading ? <Loader /> : <><span className="md:hidden lg:block">Logout&nbsp;</span>⇒</>}
                         </Button>
                     </div>
                 </div>
