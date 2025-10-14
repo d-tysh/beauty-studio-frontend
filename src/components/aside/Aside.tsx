@@ -8,7 +8,7 @@ import { MainNav } from "../MainNav";
 
 export const Aside = () => {
     const isLoggedIn = useAppSelector(selectIsLoggedIn);
-    const isLoginLoading = useAppSelector(selectIsLoading);
+    const isCurrAdminLoading = useAppSelector(selectIsLoading);
     const isMobileMenuOpen = useAppSelector(selectIsMobileMenuOpen);
 
     return (
@@ -20,7 +20,7 @@ export const Aside = () => {
             `}
         >
             {
-                isLoginLoading ? <AsideLoader /> :
+                isCurrAdminLoading ? <AsideLoader /> :
                     <>
                         <div className={clsx("py-4 px-8 md:px-4 flex items-center", isLoggedIn ? "h-auto" : "md:h-full")}>
                             <AsideLogo />
