@@ -4,7 +4,7 @@ import { useGetProcedureByIdQuery } from "../redux/api/procedureApi";
 import { Loader } from "../components/Loader";
 import { ProcedureInfo } from "../components/procedureComponents/ProcedureInfo";
 
-export const ProcedureInfoPage = () => {
+const ProcedureInfoPage = () => {
     const { procedureId } = useParams();
     const { data, isLoading, isFetching } = useGetProcedureByIdQuery(procedureId ?? '', {
         refetchOnMountOrArgChange: true
@@ -20,3 +20,5 @@ export const ProcedureInfoPage = () => {
         </>
     )
 }
+
+export default ProcedureInfoPage;

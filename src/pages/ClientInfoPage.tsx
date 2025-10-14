@@ -4,7 +4,7 @@ import { useGetClientByIdQuery } from "../redux/api/clientApi";
 import { Loader } from "../components/Loader";
 import { ClientInfo } from "../components/clientComponents/ClientInfo";
 
-export const ClientInfoPage = () => {
+const ClientInfoPage = () => {
     const { clientId } = useParams();
     const { data, isLoading, isFetching, isError } = useGetClientByIdQuery(clientId ?? '', {
         refetchOnMountOrArgChange: true
@@ -21,3 +21,5 @@ export const ClientInfoPage = () => {
         </>
     )
 }
+
+export default ClientInfoPage;

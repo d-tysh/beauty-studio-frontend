@@ -4,7 +4,7 @@ import { useGetAdminByIdQuery } from "../redux/api/adminApi";
 import { Loader } from "../components/Loader";
 import { AdminInfo } from "../components/adminComponents/AdminInfo";
 
-export const AdminInfoPage = () => {
+const AdminInfoPage = () => {
     const params = useParams<{ id: string }>();
     const { data, isLoading, error, isFetching } = useGetAdminByIdQuery(params.id ?? "", {
         refetchOnMountOrArgChange: true,
@@ -21,3 +21,5 @@ export const AdminInfoPage = () => {
         </div>
     )
 }
+
+export default AdminInfoPage;

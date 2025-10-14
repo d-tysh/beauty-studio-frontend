@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Button } from "../components/Button";
 import { ClientAddForm } from "../components/clientComponents/ClientAddForm";
 
-export const AllClientsPage = () => {
+const AllClientsPage = () => {
     const { data, isLoading, isFetching, isError, refetch } = useGetAllClientsQuery(undefined, {
         refetchOnMountOrArgChange: true
     });
@@ -35,3 +35,5 @@ export const AllClientsPage = () => {
         </>
     )
 }
+
+export default AllClientsPage;

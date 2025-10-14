@@ -15,3 +15,5 @@ export const PrivateRoute = ({ component: Component, redirectTo }: PrivateRouteP
 
     return shouldRedirect ? <Navigate to={redirectTo} /> : Component;
 }
+
+export default PrivateRoute;

@@ -3,7 +3,7 @@ import { useGetAllProceduresQuery } from "../redux/api/procedureApi";
 import { Loader } from "../components/Loader";
 import { ProceduresList } from "../components/procedureComponents/ProceduresList";
 
-export const AllProceduresPage = () => {
+const AllProceduresPage = () => {
     const { data, isLoading, isFetching } = useGetAllProceduresQuery(undefined, {
         refetchOnMountOrArgChange: true
     });
@@ -18,3 +18,5 @@ export const AllProceduresPage = () => {
         </>
     )
 }
+
+export default AllProceduresPage;

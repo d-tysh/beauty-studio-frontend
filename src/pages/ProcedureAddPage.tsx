@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom"
 import { H1 } from "../components/H1"
 import { ProcedureAddForm } from "../components/procedureComponents/ProcedureAddForm";
 
-export const ProcedureAddPage = () => {
+const ProcedureAddPage = () => {
     const { state } = useLocation();
 
     return (
@@ -12,3 +12,5 @@ export const ProcedureAddPage = () => {
         </>
     )
 }
+
+export default ProcedureAddPage;

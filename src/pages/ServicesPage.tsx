@@ -6,7 +6,7 @@ import { Loader } from "../components/Loader";
 import { ServicesList } from "../components/serviceComponents/ServicesList";
 import { ServiceAddForm } from "../components/serviceComponents/ServiceAddForm";
 
-export const ServicesPage = () => {
+const ServicesPage = () => {
     const { data: services, isLoading, isFetching, refetch, error } = useGetServicesQuery(undefined, {
         refetchOnMountOrArgChange: true
     });
@@ -35,3 +35,5 @@ export const ServicesPage = () => {
         </>
     )
 }
+
+export default ServicesPage;

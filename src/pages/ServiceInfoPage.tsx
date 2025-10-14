@@ -4,7 +4,7 @@ import { useGetServiceByIdQuery } from "../redux/api/serviceApi";
 import { Loader } from "../components/Loader";
 import { ServiceInfo } from "../components/serviceComponents/ServiceInfo";
 
-export const ServiceInfoPage = () => {
+const ServiceInfoPage = () => {
     const { serviceId } = useParams<{ serviceId: string }>();
     const { data, isLoading, error, isFetching } = useGetServiceByIdQuery(serviceId ?? '', {
         refetchOnMountOrArgChange: true,
@@ -21,3 +21,5 @@ export const ServiceInfoPage = () => {
         </>
     )
 }
+
+export default ServiceInfoPage;

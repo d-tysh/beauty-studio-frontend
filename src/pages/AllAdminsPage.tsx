@@ -9,7 +9,7 @@ import { AdminsList } from "../components/adminComponents/AdminsList";
 import { AdminAddForm } from "../components/adminComponents/AdminAddForm";
 import { Button } from "../components/Button";
 
-export const AllAdminsPage = () => {
+const AllAdminsPage = () => {
     const { data, isLoading, error, isFetching, refetch } = useGetAllAdminsQuery(undefined, {
         refetchOnMountOrArgChange: true
     });
@@ -47,3 +47,5 @@ export const AllAdminsPage = () => {
         </>
     )
 }
+
+export default AllAdminsPage;
