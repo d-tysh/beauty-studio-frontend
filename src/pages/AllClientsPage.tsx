@@ -16,7 +16,7 @@ const AllClientsPage = () => {
         setIsAddFormOpen(!isAddFormOpen);
     };
 
-    const btnText = isAddFormOpen ? '🗙 Cancel' : '➕ Add client';
+    const btnText = isAddFormOpen ? '🗙 Cancel' : '✚ Add client';
 
     return (
         <>

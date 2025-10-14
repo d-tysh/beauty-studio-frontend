@@ -6,7 +6,7 @@ import { ProcedureInfo } from "../components/procedureComponents/ProcedureInfo";
 
 const ProcedureInfoPage = () => {
     const { procedureId } = useParams();
-    const { data, isLoading, isFetching } = useGetProcedureByIdQuery(procedureId ?? '', {
+    const { data, isLoading, isFetching, isError } = useGetProcedureByIdQuery(procedureId ?? '', {
         refetchOnMountOrArgChange: true
     });
 
@@ -15,6 +15,7 @@ const ProcedureInfoPage = () => {
             <H1>Procedure info</H1>
             <div className="p-4 mx-auto">
                 { (isLoading || isFetching) && <div className="flex justify-center p-4"><Loader /></div>}
+                { isError && !isLoading && <p>Error! Something went wrong...</p> }
                 { !isLoading && !isFetching && data && <ProcedureInfo procedureInfo={data[0]} /> }
             </div>
         </>

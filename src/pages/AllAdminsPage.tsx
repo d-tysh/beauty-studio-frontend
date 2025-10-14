@@ -27,7 +27,7 @@ const AllAdminsPage = () => {
         setIsAddFormOpen(!isAddFormOpen);
     };
 
-    const btnText = isAddFormOpen ? '🗙 Cancel' : '➕ Add admin';
+    const btnText = isAddFormOpen ? '🗙 Cancel' : '✚ Add admin';
 
     return (
         <>

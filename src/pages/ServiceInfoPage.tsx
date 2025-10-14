@@ -6,7 +6,7 @@ import { ServiceInfo } from "../components/serviceComponents/ServiceInfo";
 
 const ServiceInfoPage = () => {
     const { serviceId } = useParams<{ serviceId: string }>();
-    const { data, isLoading, error, isFetching } = useGetServiceByIdQuery(serviceId ?? '', {
+    const { data, isLoading, isError, isFetching } = useGetServiceByIdQuery(serviceId ?? '', {
         refetchOnMountOrArgChange: true,
     });
 
@@ -15,8 +15,8 @@ const ServiceInfoPage = () => {
             <H1>Service</H1>
             <div className="p-4 mx-auto">
                 {(isLoading || isFetching) && <div className="flex justify-center p-4"><Loader /></div>}
-                {error && !isLoading && <p className="text-center">Not found admin with this ID.</p>}
-                {data && !isLoading && !isFetching && !error && <ServiceInfo serviceInfo={data.result} />}
+                {isError && !isLoading && <p className="text-center">Not found admin with this ID.</p>}
+                {data && !isLoading && !isFetching && !isError && <ServiceInfo serviceInfo={data.result} />}
             </div>
         </>
     )

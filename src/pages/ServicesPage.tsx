@@ -7,7 +7,7 @@ import { ServicesList } from "../components/serviceComponents/ServicesList";
 import { ServiceAddForm } from "../components/serviceComponents/ServiceAddForm";
 
 const ServicesPage = () => {
-    const { data: services, isLoading, isFetching, refetch, error } = useGetServicesQuery(undefined, {
+    const { data: services, isLoading, isFetching, refetch, isError } = useGetServicesQuery(undefined, {
         refetchOnMountOrArgChange: true
     });
     const [isAddFormOpen, setIsAddFormOpen] = useState(false);
@@ -16,7 +16,7 @@ const ServicesPage = () => {
         setIsAddFormOpen(!isAddFormOpen);
     };
 
-    const btnText = isAddFormOpen ? '🗙 Cancel' : '➕ Add service';
+    const btnText = isAddFormOpen ? '🗙 Cancel' : '✚ Add service';
 
     return (
         <>
@@ -27,9 +27,9 @@ const ServicesPage = () => {
             { isAddFormOpen && <ServiceAddForm refetch={refetch} /> }
             <div className="p-4 mx-auto">
                 {(isLoading || isFetching) && <div className="flex justify-center"><Loader /></div>}
-                {error && <p>Something went wrong...</p>}
+                {isError && !isLoading && <p>Error! Something went wrong...</p>}
                 {
-                    !isLoading && !isFetching && !error && services && <ServicesList services={services.data} />
+                    !isLoading && !isFetching && !isError && services && <ServicesList services={services.data} />
                 }
             </div>
         </>

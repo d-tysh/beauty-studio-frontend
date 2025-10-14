@@ -4,7 +4,7 @@ import { Loader } from "../components/Loader";
 import { ProceduresList } from "../components/procedureComponents/ProceduresList";
 
 const AllProceduresPage = () => {
-    const { data, isLoading, isFetching } = useGetAllProceduresQuery(undefined, {
+    const { data, isLoading, isFetching, isError } = useGetAllProceduresQuery(undefined, {
         refetchOnMountOrArgChange: true
     });
 
@@ -13,6 +13,7 @@ const AllProceduresPage = () => {
             <H1>Procedures</H1>
             <div className="p-4 mx-auto">
                 { (isLoading || isFetching) && <div className="flex justify-center"><Loader /></div> }
+                { isError && !isLoading && <p>Error! Something went wrong...</p> }
                 { !isLoading && !isFetching && data.result && <ProceduresList procedures={data.result} /> }
             </div>
         </>

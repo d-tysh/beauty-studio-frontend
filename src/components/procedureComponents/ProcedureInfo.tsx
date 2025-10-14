@@ -36,7 +36,7 @@ export const ProcedureInfo = ({ procedureInfo }: { procedureInfo: IProcedure }) 
                     <Form className="custom-form my-4">
                         <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
                             type='button' onClick={handleDeleteProcedure}>
-                            ❌ Delete
+                            ✖ Delete
                         </Button>
                         <ProcedureFormFields client={client} admin={admin} />
                         <Button className="custom-form-button mt-2" isLoading={isUpdateLoading} type="submit">

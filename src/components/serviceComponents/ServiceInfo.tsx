@@ -27,7 +27,7 @@ export const ServiceInfo = ({ serviceInfo }: { serviceInfo: IService }) => {
                     <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
                         type='button' onClick={handleDelete} disabled={btnDisabled}
                     >
-                        ❌ Delete
+                        ✖ Delete
                     </Button>
                     <ServiceFormFields />
                     <Button className="custom-form-button mt-2" isLoading={isUpdateLoading}>
