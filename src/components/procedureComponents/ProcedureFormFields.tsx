@@ -24,7 +24,7 @@ export const ProcedureFormFields = ({ client, admin, addProcedure, errorsInfo }:
             <FormField type="time" label="Time" name="time" errorsInfo={errorsInfo} />
             <ServicesSelect />
             <ProcedureClientField client={client} addProcedure={addProcedure} />
-            <ProcedureAdminSelect admin={admin} addProcedure={addProcedure} errorsInfo={errorsInfo} />
+            <ProcedureAdminSelect admin={admin} addProcedure={addProcedure} />
         </>
     )
 }

@@ -5,18 +5,15 @@ import { useAppSelector } from "../../redux/hooks";
 import type { IAdmin } from "../../types/admin";
 import { Field } from "formik";
 import { Link } from "react-router-dom";
-import type { ValidationErrors } from "../../types/types";
 
 interface AdminSelectProps {
     addProcedure?: boolean,
-    admin?: Pick<IAdmin, "_id">,
-    errorsInfo?: ValidationErrors
+    admin?: Pick<IAdmin, "_id">
 }
 
-export const ProcedureAdminSelect = ({ addProcedure, admin, errorsInfo }: AdminSelectProps) => {
+export const ProcedureAdminSelect = ({ addProcedure, admin }: AdminSelectProps) => {
     const currentAdmin = useAppSelector(selectCurrentAdmin);
     const [trigger, { data: admins, isError: isAdminsError }] = useLazyGetAllAdminsQuery();
-    const isFieldError = !!errorsInfo?.errors?.admin && !!errorsInfo?.touched?.admin;
 
     useEffect(() => {
         if (currentAdmin?.status === 'pro' && addProcedure) {
@@ -36,7 +33,7 @@ export const ProcedureAdminSelect = ({ addProcedure, admin, errorsInfo }: AdminS
                                 {isAdminsError && <>Error! Unlable to load admins...</>}
                                 {
                                     admins && !isAdminsError &&
-                                    <Field as='select' name='admin'
+                                    <Field as='select' name='admin' required
                                         className='w-full outline-0 cursor-pointer'
                                     >
                                         <option value="" disabled>Select admin</option>
@@ -46,14 +43,6 @@ export const ProcedureAdminSelect = ({ addProcedure, admin, errorsInfo }: AdminS
                                             </option>)
                                         }
                                     </Field>
-                                }
-                                {
-                                    isFieldError &&
-                                    <p className="text-rose-400 font-semibold text-xs 
-                                                absolute left-1/2 -bottom-4 -translate-x-1/2"
-                                    >
-                                        {errorsInfo && errorsInfo.errors.admin as string}
-                                    </p>
                                 }
                             </div>
                             :
