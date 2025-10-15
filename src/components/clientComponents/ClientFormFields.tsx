@@ -1,9 +1,8 @@
-import type { IClient, IClientRegister } from "../../types/client"
 import type { ValidationErrors } from "../../types/types"
 import { FormField } from "../form/FormField"
 
 interface ClientFormProps {
-    errorsInfo: ValidationErrors<IClient | IClientRegister>
+    errorsInfo: ValidationErrors
 }
 
 export const ClientFormFields = ({ errorsInfo }: ClientFormProps ) => {

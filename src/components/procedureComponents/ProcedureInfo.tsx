@@ -7,6 +7,7 @@ import { ProcedureFormFields } from "./ProcedureFormFields";
 import { useGetServicesQuery } from "../../redux/api/serviceApi";
 import { useProcedureUpdate } from "../../hooks/procedureHooks/useProcedureUpdate";
 import { useProcedureDelete } from "../../hooks/procedureHooks/useProcedureDelete";
+import { procedureUpdateSchema } from "../validation";
 
 export const ProcedureInfo = ({ procedureInfo }: { procedureInfo: IProcedure }) => {
     const { _id: procedureId, procedureName, date, additionalInfo, services, admin, client, price = 0 } = procedureInfo;
@@ -29,19 +30,22 @@ export const ProcedureInfo = ({ procedureInfo }: { procedureInfo: IProcedure }) 
                     client: client.name,
                     services: selectedServices
                 }}
+                validationSchema={procedureUpdateSchema}
                 enableReinitialize
                 onSubmit={updateProcedure}
             >
-                <Form className="custom-form my-4">
-                    <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
-                        type='button' onClick={handleDeleteProcedure}>
-                        ✖ Delete
-                    </Button>
-                    <ProcedureFormFields client={client} admin={admin} />
-                    <Button className="custom-form-button mt-2" isLoading={isUpdateLoading} type="submit">
-                        💾 Update
-                    </Button>
-                </Form>
+                {({ errors, touched }) => (
+                    <Form className="custom-form my-4">
+                        <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
+                            type='button' onClick={handleDeleteProcedure}>
+                            ✖ Delete
+                        </Button>
+                        <ProcedureFormFields client={client} admin={admin} errorsInfo={{ errors, touched }} />
+                        <Button className="custom-form-button mt-2" isLoading={isUpdateLoading} type="submit">
+                            💾 Update
+                        </Button>
+                    </Form>
+                )}
             </Formik>
         </FormWrapper>
     )

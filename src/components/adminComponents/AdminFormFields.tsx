@@ -3,15 +3,12 @@ import { selectCurrentAdmin } from "../../redux/admin/selectors";
 import { useAppSelector } from "../../redux/hooks";
 import { FormField } from "../form/FormField";
 import type { ValidationErrors } from "../../types/types";
-import type { IAdminLogin, IAdminRegister, IAdminUpdate } from "../../types/admin";
-
-type AdminFormTypes = IAdminLogin | IAdminRegister | IAdminUpdate;
 
 interface Props { 
     id?: string, 
     addAdmin?: boolean, 
     register?: boolean,
-    errorsInfo?: ValidationErrors<AdminFormTypes>
+    errorsInfo?: ValidationErrors
 }
 
 export const AdminFormFields = ({ id, addAdmin, register, errorsInfo }: Props) => {

@@ -1,8 +1,7 @@
-import type { IService } from "../../types/service"
 import type { ValidationErrors } from "../../types/types"
 import { FormField } from "../form/FormField"
 
-export const ServiceFormFields = ({ errorsInfo }: { errorsInfo: ValidationErrors<Omit<IService, '_id'>> }) => {
+export const ServiceFormFields = ({ errorsInfo }: { errorsInfo: ValidationErrors }) => {
     return (
         <>
             <FormField label="Service name" name="serviceName" errorsInfo={errorsInfo}
