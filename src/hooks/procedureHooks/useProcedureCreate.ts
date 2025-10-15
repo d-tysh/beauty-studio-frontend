@@ -4,10 +4,12 @@ import { useGetServicesQuery } from "../../redux/api/serviceApi";
 import { selectCurrentAdmin } from "../../redux/admin/selectors";
 import { useAppSelector } from "../../redux/hooks";
 import type { ProcedureAddProps } from "../../types/procedures";
+import { useNavigate } from "react-router-dom";
 
 export const useProcedureCreate = (clientId: string) => {
     const currentAdmin = useAppSelector(selectCurrentAdmin);
     const [createProcedure, { isLoading: isCreateLoading }] = useCreateProcedureMutation();
+    const navigate = useNavigate();
 
     const { data: servicesData } = useGetServicesQuery(undefined, {
         refetchOnMountOrArgChange: true
@@ -35,6 +37,7 @@ export const useProcedureCreate = (clientId: string) => {
 
         try {
             const result = await createProcedure(procedureData);
+            navigate('/procedures');
             toast.success(result.data.message);
         } catch (error) {
             console.error(error);
