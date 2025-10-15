@@ -47,8 +47,7 @@ export const ClientInfo = ({ clientInfo }: { clientInfo: IClient }) => {
                         <Button className="custom-form-button mt-2" isLoading={isUpdateLoading}>
                             💾 Update client data
                         </Button>
-                        <Button className="custom-form-button" isLoading={isDeleteLoading}
-                            type='button' onClick={createProcedure}>
+                        <Button className="custom-form-button" type='button' onClick={createProcedure}>
                             ✚ Create procedure
                         </Button>
                     </Form>
