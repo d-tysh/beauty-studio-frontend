@@ -4,6 +4,7 @@ import { Button } from "../Button";
 import { useAdminLogin } from "../../hooks/adminHooks/useAdminLogin";
 import { FormField } from "../form/FormField";
 import { FormWrapper } from "../form/FormWrapper";
+import { adminLoginSchema } from "../validation";
 
 export const LoginForm = () => {
     const { handleLogin, isLoading } = useAdminLogin();
@@ -15,21 +16,24 @@ export const LoginForm = () => {
                     login: '',
                     password: ''
                 }}
+                validationSchema={adminLoginSchema}
                 onSubmit={handleLogin}
             >
-                <Form className="custom-form md:my-20">
-                    <FormField
-                        label="Login" name='login' required
-                        autoComplete='off' placeholder='Enter login...'
-                    />
-                    <FormField
-                        label="Password" name='password' type='password' required
-                        autoComplete='off' placeholder='Enter password...'
-                    />
-                    <Button className='custom-form-button'>
-                        {isLoading ? <Loader /> : 'Login'}
-                    </Button>
-                </Form>
+                {({ errors, touched }) => (
+                    <Form className="custom-form md:my-20">
+                        <FormField
+                            label="Login" name='login' errorsInfo={{ errors, touched }}
+                            autoComplete='off' placeholder='Enter login...'
+                        />
+                        <FormField
+                            label="Password" name='password' type='password' errorsInfo={{ errors, touched }}
+                            autoComplete='off' placeholder='Enter password...'
+                        />
+                        <Button className='custom-form-button'>
+                            {isLoading ? <Loader /> : 'Login'}
+                        </Button>
+                    </Form>
+                )}
             </Formik>
         </FormWrapper>
     )

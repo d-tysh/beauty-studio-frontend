@@ -4,6 +4,7 @@ import { Button } from "../Button";
 import { useServiceAdd } from "../../hooks/serviceHooks/useServiceAdd";
 import { ServiceFormFields } from "./ServiceFormFields";
 import { FormWrapper } from "../form/FormWrapper";
+import { serviceAddSchema } from "../validation";
 
 export const ServiceAddForm = ({ refetch }: { refetch: () => void }) => {
     const { handleAddService, isLoading } = useServiceAdd();
@@ -26,14 +27,17 @@ export const ServiceAddForm = ({ refetch }: { refetch: () => void }) => {
                     price: '',
                     time: ''
                 }}
+                validationSchema={serviceAddSchema}
                 onSubmit={handleSubmit}
             >
-                <Form className="custom-form my-4">
-                    <ServiceFormFields />
-                    <Button className="custom-form-button" isLoading={isLoading}>
-                        Add service
-                    </Button>
-                </Form>
+                {({ errors, touched }) => (
+                    <Form className="custom-form my-4">
+                        <ServiceFormFields errorsInfo={{ errors, touched }} />
+                        <Button className="custom-form-button" isLoading={isLoading}>
+                            Add service
+                        </Button>
+                    </Form>
+                )}
             </Formik>
         </FormWrapper>
     )

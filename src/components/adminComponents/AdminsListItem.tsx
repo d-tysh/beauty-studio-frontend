@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import type { IAdmin } from "../../types/types"
+import type { IAdmin } from "../../types/admin"
 import { useAppSelector } from "../../redux/hooks"
 import { selectCurrentAdmin } from "../../redux/admin/selectors"
 

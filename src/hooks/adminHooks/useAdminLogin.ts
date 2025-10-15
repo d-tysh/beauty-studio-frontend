@@ -1,7 +1,7 @@
 import { useLoginMutation } from "../../redux/api/adminApi"
 import { useAppDispatch } from "../../redux/hooks";
 import { setCurrentAdmin, setLoading } from "../../redux/admin/slice";
-import type { IAdminLogin } from "../../types/types";
+import type { IAdminLogin } from "../../types/admin";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 

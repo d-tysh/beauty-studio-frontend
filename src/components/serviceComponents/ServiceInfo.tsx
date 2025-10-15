@@ -7,6 +7,7 @@ import { useServiceDelete } from "../../hooks/serviceHooks/useServiceDelete";
 import { FormWrapper } from "../form/FormWrapper";
 import { selectCurrentAdmin } from "../../redux/admin/selectors";
 import { useAppSelector } from "../../redux/hooks";
+import { serviceUpdateSchema } from "../validation";
 
 export const ServiceInfo = ({ serviceInfo }: { serviceInfo: IService }) => {
     const { _id: serviceId, serviceName, description, price, time } = serviceInfo;
@@ -20,20 +21,23 @@ export const ServiceInfo = ({ serviceInfo }: { serviceInfo: IService }) => {
         <FormWrapper>
             <Formik
                 initialValues={{ serviceName, price, time, description: description || '-' }}
+                validationSchema={serviceUpdateSchema}
                 enableReinitialize
                 onSubmit={handleUpdate}
             >
-                <Form className="custom-form my-4">
-                    <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
-                        type='button' onClick={handleDelete} disabled={btnDisabled}
-                    >
-                        ✖ Delete
-                    </Button>
-                    <ServiceFormFields />
-                    <Button className="custom-form-button mt-2" isLoading={isUpdateLoading}>
-                        💾 Update
-                    </Button>
-                </Form>
+                {({ errors, touched }) => (
+                    <Form className="custom-form my-4">
+                        <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
+                            type='button' onClick={handleDelete} disabled={btnDisabled}
+                        >
+                            ✖ Delete
+                        </Button>
+                        <ServiceFormFields errorsInfo={{ errors, touched }} />
+                        <Button className="custom-form-button mt-2" isLoading={isUpdateLoading}>
+                            💾 Update
+                        </Button>
+                    </Form>
+                )}
             </Formik>
         </FormWrapper>
     )

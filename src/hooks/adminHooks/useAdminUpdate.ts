@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { setCurrentAdmin } from "../../redux/admin/slice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { selectCurrentAdmin } from "../../redux/admin/selectors";
-import type { IAdminUpdate } from "../../types/types";
+import type { IAdminUpdate } from "../../types/admin";
 
 export const useAdminUpdate = (id: string) => {
     const currentAdmin = useAppSelector(selectCurrentAdmin);

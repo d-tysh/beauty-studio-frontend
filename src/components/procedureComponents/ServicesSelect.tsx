@@ -9,7 +9,7 @@ export const ServicesSelect = () => {
     return (
         <div className="custom-form-label">
             <span className="font-semibold w-1/3 ml-2 md:ml-0">Services</span>
-            <div className="custom-form-field flex flex-col max-h-50 overflow-y-auto">
+            <div className="custom-form-field flex flex-col max-h-50 overflow-y-auto relative">
                 {isServicesError && <p>Unable to load services...</p>}
                 {
                     servicesData && servicesData.data.map(service =>

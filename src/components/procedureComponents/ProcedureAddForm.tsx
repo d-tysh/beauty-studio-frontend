@@ -4,6 +4,7 @@ import { ProcedureFormFields } from "./ProcedureFormFields"
 import { Button } from "../Button"
 import { useLocation } from "react-router-dom"
 import { useProcedureCreate } from "../../hooks/procedureHooks/useProcedureCreate"
+import { procedureAddSchema } from "../validation"
 
 export const ProcedureAddForm = () => {
     const { state } = useLocation();
@@ -26,14 +27,17 @@ export const ProcedureAddForm = () => {
                     client: client.name || '',
                     services: []
                 }}
+                validationSchema={procedureAddSchema}
                 onSubmit={handleCreateProcedure}
             >
-                <Form className="custom-form my-4">
-                    <ProcedureFormFields client={client} addProcedure />
-                    <Button className="custom-form-button mt-2" isLoading={isCreateLoading} type="submit">
-                        Add procedure
-                    </Button>
-                </Form>
+                {({ errors, touched }) => (
+                    <Form className="custom-form my-4">
+                        <ProcedureFormFields client={client} addProcedure errorsInfo={{ errors, touched }} />
+                        <Button className="custom-form-button mt-2" isLoading={isCreateLoading} type="submit">
+                            Add procedure
+                        </Button>
+                    </Form>
+                )}
             </Formik>
         </FormWrapper>
     )

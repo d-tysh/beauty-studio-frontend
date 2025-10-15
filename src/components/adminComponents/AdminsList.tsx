@@ -1,4 +1,4 @@
-import type { IAdmin } from "../../types/types"
+import type { IAdmin } from "../../types/admin"
 import { AdminsListItem } from "./AdminsListItem"
 
 export const AdminsList = ({ admins }: { admins: IAdmin[] }) => {

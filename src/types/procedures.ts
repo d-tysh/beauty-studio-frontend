@@ -1,6 +1,6 @@
 import type { IClient } from "./client";
 import type { IService } from "./service"
-import type { IAdmin } from "./types";
+import type { IAdmin } from "./admin";
 
 export interface IProcedure {
     _id: string,

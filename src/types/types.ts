@@ -1,41 +1,6 @@
-export interface IState {
-    admin: IAdminState
-}
+import type { FormikTouched } from "formik"
 
-export interface IAdmin {
-    _id: string,
-    id?: string,
-    name: string,
-    login: string,
-    email: string,
-    status: ADMIN_STATUS
+export interface ValidationErrors {
+    errors: Record<string, unknown | undefined>
+    touched: Record<string, boolean | FormikTouched<unknown> | undefined>
 }
-
-export interface IAdminState {
-    currentAdmin: IAdmin | null,
-    isLoggedIn: boolean,
-    isLoading: boolean,
-    isMobileMenuOpen: boolean
-}
-
-export interface IAdminLogin {
-    login: string,
-    password: string
-}
-
-export interface IAdminRegister {
-    name: string,
-    login: string,
-    email: string | '',
-    password: string,
-    status: ADMIN_STATUS
-}
-
-export interface IAdminUpdate {
-    name: string,
-    login: string,
-    email: string | '',
-    status: ADMIN_STATUS
-}
-
-type ADMIN_STATUS = 'pro' | 'basic';
