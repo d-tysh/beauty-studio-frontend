@@ -36,22 +36,20 @@ export const ClientInfo = ({ clientInfo }: { clientInfo: IClient }) => {
                 enableReinitialize
                 onSubmit={handleUpdateClient}
             >
-                {({ errors, touched }) => (
-                    <Form className="custom-form my-4">
-                        <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
-                            type='button' onClick={handleDeleteClient} disabled={btnDisabled}
-                        >
-                            ✖ Delete
-                        </Button>
-                        <ClientFormFields errorsInfo={{ errors, touched }} />
-                        <Button className="custom-form-button mt-2" isLoading={isUpdateLoading}>
-                            💾 Update client data
-                        </Button>
-                        <Button className="custom-form-button" type='button' onClick={createProcedure}>
-                            ✚ Create procedure
-                        </Button>
-                    </Form>
-                )}
+                <Form className="custom-form my-4">
+                    <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
+                        type='button' onClick={handleDeleteClient} disabled={btnDisabled}
+                    >
+                        ✖ Delete
+                    </Button>
+                    <ClientFormFields />
+                    <Button className="custom-form-button mt-2" isLoading={isUpdateLoading}>
+                        💾 Update client data
+                    </Button>
+                    <Button className="custom-form-button" type='button' onClick={createProcedure}>
+                        ✚ Create procedure
+                    </Button>
+                </Form>
             </Formik>
         </FormWrapper>
     )

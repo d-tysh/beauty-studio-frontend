@@ -17,32 +17,28 @@ export const AdminInfo = ({ adminInfo }: { adminInfo: IAdmin }) => {
 
     const deleteAdmin = () => id && handleDeleteAdmin(id);
 
-    const deleteBtnDisabled = currentAdmin?.id === id && currentAdmin?.status === 'pro';
+    const deleteBtnActive = currentAdmin?.id !== id && currentAdmin?.status === 'pro';
 
     return (
         <FormWrapper>
             <Formik
-                initialValues={{ name, login, status, email: email || "-" }}
+                initialValues={{ name, login, status, email: email }}
                 validationSchema={adminUpdateSchema}
                 enableReinitialize
                 onSubmit={handleUpdate}
             >
-                {({ errors, touched }) => (
-                    <Form className="custom-form my-4">
-                        {
-                            currentAdmin?.status === 'pro' &&
-                            <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading} 
-                                type='button' onClick={deleteAdmin} disabled={deleteBtnDisabled}
-                            >
-                                ✖ Delete
-                            </Button>
-                        }
-                        <AdminFormFields id={id} errorsInfo={{ errors, touched }} />
-                        <Button className="custom-form-button" isLoading={isUpdateLoading}>
-                            Update
-                        </Button>
-                    </Form>
-                )}
+                <Form className="custom-form my-4">
+                    {
+                        deleteBtnActive &&
+                        <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
+                            type='button' onClick={deleteAdmin}
+                        >✖ Delete</Button>
+                    }
+                    <AdminFormFields id={id} />
+                    <Button className="custom-form-button" isLoading={isUpdateLoading}>
+                        Update
+                    </Button>
+                </Form>
             </Formik>
         </FormWrapper>
     )

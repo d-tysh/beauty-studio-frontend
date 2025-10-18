@@ -34,18 +34,16 @@ export const ProcedureInfo = ({ procedureInfo }: { procedureInfo: IProcedure }) 
                 enableReinitialize
                 onSubmit={updateProcedure}
             >
-                {({ errors, touched }) => (
-                    <Form className="custom-form my-4">
-                        <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
-                            type='button' onClick={handleDeleteProcedure}>
-                            ✖ Delete
-                        </Button>
-                        <ProcedureFormFields client={client} admin={admin} errorsInfo={{ errors, touched }} />
-                        <Button className="custom-form-button mt-2" isLoading={isUpdateLoading} type="submit">
-                            💾 Update
-                        </Button>
-                    </Form>
-                )}
+                <Form className="custom-form my-4">
+                    <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
+                        type='button' onClick={handleDeleteProcedure}>
+                        ✖ Delete
+                    </Button>
+                    <ProcedureFormFields client={client} admin={admin} />
+                    <Button className="custom-form-button mt-2" isLoading={isUpdateLoading} type="submit">
+                        💾 Update
+                    </Button>
+                </Form>
             </Formik>
         </FormWrapper>
     )

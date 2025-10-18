@@ -30,14 +30,12 @@ export const ProcedureAddForm = () => {
                 validationSchema={procedureAddSchema}
                 onSubmit={handleCreateProcedure}
             >
-                {({ errors, touched }) => (
-                    <Form className="custom-form my-4">
-                        <ProcedureFormFields client={client} addProcedure errorsInfo={{ errors, touched }} />
-                        <Button className="custom-form-button mt-2" isLoading={isCreateLoading} type="submit">
-                            Add procedure
-                        </Button>
-                    </Form>
-                )}
+                <Form className="custom-form my-4">
+                    <ProcedureFormFields client={client} addProcedure />
+                    <Button className="custom-form-button mt-2" isLoading={isCreateLoading} type="submit">
+                        Add procedure
+                    </Button>
+                </Form>
             </Formik>
         </FormWrapper>
     )
