@@ -27,14 +27,12 @@ export const ClientAddForm = ({ refetch }: { refetch: () => void }) => {
                 validationSchema={clientRegisterSchema}
                 onSubmit={handleSubmit}
             >
-                {({ errors, touched }) => (
-                    <Form className="custom-form my-4">
-                        <ClientFormFields errorsInfo={{ errors, touched }} />
+                <Form className="custom-form my-4">
+                        <ClientFormFields />
                         <Button className="custom-form-button" isLoading={isLoading}>
                             Add client
                         </Button>
                     </Form>
-                )}
             </Formik>
         </FormWrapper>
     )

@@ -30,14 +30,12 @@ export const ServiceAddForm = ({ refetch }: { refetch: () => void }) => {
                 validationSchema={serviceAddSchema}
                 onSubmit={handleSubmit}
             >
-                {({ errors, touched }) => (
-                    <Form className="custom-form my-4">
-                        <ServiceFormFields errorsInfo={{ errors, touched }} />
-                        <Button className="custom-form-button" isLoading={isLoading}>
-                            Add service
-                        </Button>
-                    </Form>
-                )}
+                <Form className="custom-form my-4">
+                    <ServiceFormFields />
+                    <Button className="custom-form-button" isLoading={isLoading}>
+                        Add service
+                    </Button>
+                </Form>
             </Formik>
         </FormWrapper>
     )
