@@ -25,19 +25,17 @@ export const ServiceInfo = ({ serviceInfo }: { serviceInfo: IService }) => {
                 enableReinitialize
                 onSubmit={handleUpdate}
             >
-                {({ errors, touched }) => (
                     <Form className="custom-form my-4">
                         <Button className="custom-form-button ml-auto" isLoading={isDeleteLoading}
                             type='button' onClick={handleDelete} disabled={btnDisabled}
                         >
                             ✖ Delete
                         </Button>
-                        <ServiceFormFields errorsInfo={{ errors, touched }} />
+                        <ServiceFormFields />
                         <Button className="custom-form-button mt-2" isLoading={isUpdateLoading}>
                             💾 Update
                         </Button>
                     </Form>
-                )}
             </Formik>
         </FormWrapper>
     )

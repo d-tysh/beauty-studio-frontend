@@ -3,8 +3,19 @@ import { AdminsListItem } from "./AdminsListItem"
 
 export const AdminsList = ({ admins }: { admins: IAdmin[] }) => {
     return (
-        <ul className="flex gap-4 flex-col items-center">
-            { admins.map(admin => <AdminsListItem key={admin._id} admin={admin} />) }
-        </ul>
+        <div className="table-wrapper">
+            <table className="custom-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Login</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {admins.map(admin => <AdminsListItem key={admin._id} admin={admin} />)}
+                </tbody>
+            </table>
+        </div>
     )
 }

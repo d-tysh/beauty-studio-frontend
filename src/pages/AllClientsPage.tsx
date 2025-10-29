@@ -21,16 +21,14 @@ const AllClientsPage = () => {
     return (
         <>
             <H1>Clients</H1>
-            <Button className="mx-auto mt-4 w-40" onClick={handleAddFormState}>
+            <Button className="mx-auto my-4 w-40" onClick={handleAddFormState}>
                 {btnText}
             </Button>
             {isAddFormOpen && <ClientAddForm refetch={refetch} />}
-            <div className="p-4 mx-auto">
-                {(isLoading || isFetching) && <div className="flex justify-center"><Loader /></div>}
-                {isError && <p>Error! Something went wrong...</p>}
-                {
-                    !isLoading && !isFetching && data && <ClientsList clients={data.clients} />
-                }
+            {(isLoading || isFetching) && <div className="flex justify-center"><Loader /></div>}
+            {isError && <p>Error! Something went wrong...</p>}
+            <div className="px-4 mx-auto">
+                {!isLoading && !isFetching && data && <ClientsList clients={data.clients} />}
             </div>
         </>
     )

@@ -21,16 +21,14 @@ const ServicesPage = () => {
     return (
         <>
             <H1>Services</H1>
-            <Button className="mx-auto mt-4 w-40" onClick={handleAddFormState}>
-                {btnText}
-            </Button>
-            { isAddFormOpen && <ServiceAddForm refetch={refetch} /> }
-            <div className="p-4 mx-auto">
-                {(isLoading || isFetching) && <div className="flex justify-center"><Loader /></div>}
+            <div className="p-4">
+                <Button className="mx-auto w-40" onClick={handleAddFormState}>
+                    {btnText}
+                </Button>
+                {isAddFormOpen && <ServiceAddForm refetch={refetch} />}
+                {(isLoading || isFetching) && <div className="flex justify-center py-4"><Loader /></div>}
                 {isError && !isLoading && <p>Error! Something went wrong...</p>}
-                {
-                    !isLoading && !isFetching && !isError && services && <ServicesList services={services.data} />
-                }
+                {!isLoading && !isFetching && !isError && services && <ServicesList services={services.data} />}
             </div>
         </>
     )

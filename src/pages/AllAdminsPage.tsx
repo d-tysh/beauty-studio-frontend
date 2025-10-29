@@ -32,13 +32,13 @@ const AllAdminsPage = () => {
     return (
         <>
             <H1>Admins</H1>
-            <Button className="mx-auto mt-4 w-40" onClick={handleAddFormState}>
+            <Button className="mx-auto my-4 w-40" onClick={handleAddFormState}>
                 {btnText}
             </Button>
             {isAddFormOpen && <AdminAddForm refetch={refetch} />}
-            <div className="p-4 mx-auto">
-                {(isLoading || isFetching) && <div className="flex justify-center"><Loader /></div>}
-                {error && !isLoading && <p>Error! Something went wrong...</p>}
+            {(isLoading || isFetching) && <div className="flex justify-center"><Loader /></div>}
+            {error && !isLoading && <p>Error! Something went wrong...</p>}
+            <div className="px-4">
                 {
                     !isLoading && !isFetching && currentAdmin?.status === 'pro' && data &&
                     <AdminsList admins={data.result} />

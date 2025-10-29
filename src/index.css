@@ -102,25 +102,37 @@ aside > div::-webkit-scrollbar {
 }
 
 .custom-list-item {
-  @apply font-medium shadow-xl px-4 w-full md:w-120 rounded-2xl text-left
+  @apply font-medium shadow-xl w-full md:w-120 rounded-2xl text-left
 }
 
 .custom-list-item:hover {
   @apply bg-amber-100 cursor-pointer shadow-2xl;
 }
 
-.custom-table tr:not(:last-of-type) {
-  @apply border-b-2 border-amber-200;
-}
-
-.custom-table tr > td:nth-child(1) {
-  @apply border-r-2 px-4 py-2 border-amber-200 min-w-30;
-}
-
-.custom-table tr > td:nth-child(2) {
-  @apply px-4 py-2 w-full;
-}
-
 .custom-form-label {
   @apply flex flex-col items-start gap-1 md:flex-row md:items-center;
+}
+
+.table-wrapper {
+  @apply w-full my-4 overflow-x-auto rounded-lg mx-auto shadow-lg size-fit;
+}
+
+.custom-table {
+  @apply w-180 sm:min-w-full text-left;
+}
+
+.custom-table th {
+  @apply bg-gray-100 border-b border-gray-200;
+}
+
+.custom-table tr {
+  @apply hover:cursor-pointer border-gray-200 not-last:border-b hover:bg-amber-50;
+}
+
+.custom-table th, .custom-table td {
+  @apply py-3 px-6;
+}
+
+.custom-table td {
+  @apply not-last:border-r border-gray-200
 }

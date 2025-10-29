@@ -22,14 +22,12 @@ export const AdminAddForm = ({ register, refetch }: { register?: boolean, refetc
                 validationSchema={adminRegisterSchema}
                 onSubmit={handleSubmit}
             >
-                {({ errors, touched }) => (
-                    <Form className={`${register && 'md:my-20'} custom-form my-4`}>
-                        <AdminFormFields addAdmin register errorsInfo={{ errors, touched }} />
+                <Form className={`${register && 'md:my-20'} custom-form my-4`}>
+                        <AdminFormFields addAdmin register/>
                         <Button className="custom-form-button" isLoading={isLoading}>
                             {register ? "Register" : "Add admin"}
                         </Button>
                     </Form>
-                )}
             </Formik>
         </FormWrapper>
     )

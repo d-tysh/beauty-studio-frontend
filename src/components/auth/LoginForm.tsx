@@ -19,21 +19,19 @@ export const LoginForm = () => {
                 validationSchema={adminLoginSchema}
                 onSubmit={handleLogin}
             >
-                {({ errors, touched }) => (
-                    <Form className="custom-form md:my-20">
-                        <FormField
-                            label="Login" name='login' errorsInfo={{ errors, touched }}
-                            autoComplete='off' placeholder='Enter login...'
-                        />
-                        <FormField
-                            label="Password" name='password' type='password' errorsInfo={{ errors, touched }}
-                            autoComplete='off' placeholder='Enter password...'
-                        />
-                        <Button className='custom-form-button'>
-                            {isLoading ? <Loader /> : 'Login'}
-                        </Button>
-                    </Form>
-                )}
+                <Form className="custom-form md:my-20">
+                    <FormField
+                        label="Login" name='login'
+                        autoComplete='off' placeholder='Enter login...'
+                    />
+                    <FormField
+                        label="Password" name='password' type='password'
+                        autoComplete='off' placeholder='Enter password...'
+                    />
+                    <Button className='custom-form-button'>
+                        {isLoading ? <Loader /> : 'Login'}
+                    </Button>
+                </Form>
             </Formik>
         </FormWrapper>
     )

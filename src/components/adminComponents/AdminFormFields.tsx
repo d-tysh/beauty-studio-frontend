@@ -2,30 +2,28 @@ import { Field } from "formik"
 import { selectCurrentAdmin } from "../../redux/admin/selectors";
 import { useAppSelector } from "../../redux/hooks";
 import { FormField } from "../form/FormField";
-import type { ValidationErrors } from "../../types/types";
 
 interface Props { 
     id?: string, 
     addAdmin?: boolean, 
     register?: boolean,
-    errorsInfo?: ValidationErrors
 }
 
-export const AdminFormFields = ({ id, addAdmin, register, errorsInfo }: Props) => {
+export const AdminFormFields = ({ id, addAdmin, register }: Props) => {
     const currentAdmin = useAppSelector(selectCurrentAdmin);
 
     return (
         <>
             <FormField label="Name" name='name' autoComplete='off' 
-                placeholder='Enter name...' errorsInfo={errorsInfo} />
+                placeholder='Enter name...' />
             <FormField label="Login" name='login' autoComplete='off' 
-                placeholder='Enter login...' errorsInfo={errorsInfo} />
+                placeholder='Enter login...' />
             <FormField label="Email" name='email' autoComplete='off' 
-                placeholder='Enter email...' errorsInfo={errorsInfo} />
+                placeholder='Enter email...' />
             {
                 addAdmin &&
                 <FormField label="Password" name="password" type='password' autoComplete='off' 
-                    placeholder="Enter password..." errorsInfo={errorsInfo} />
+                    placeholder="Enter password..." />
             }
             {
                 currentAdmin?.status === 'pro' && !register &&
@@ -35,7 +33,7 @@ export const AdminFormFields = ({ id, addAdmin, register, errorsInfo }: Props) =
                         (addAdmin || currentAdmin?.id !== id)
                             ?
                             <div className="custom-form-field">
-                                <Field as='select' name='status' errorsInfo={errorsInfo}
+                                <Field as='select' name='status'
                                     className='w-full outline-0 cursor-pointer' 
                                 >
                                     <option value="basic">Basic</option>
@@ -44,7 +42,7 @@ export const AdminFormFields = ({ id, addAdmin, register, errorsInfo }: Props) =
                             </div>
                             :
                             <Field name='status' className='custom-form-field cursor-not-allowed' 
-                                readOnly errorsInfo={errorsInfo} />
+                                readOnly />
                     }
                 </label >
             }
